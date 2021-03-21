@@ -23,12 +23,12 @@ namespace ecommerce.ecommerceClasses
             throw new NotImplementedException();
         }
 
-        public void setTransaction()
+        public void setTransaction(Transaction transaction)
         {
             throw new NotImplementedException();
         }
 
-        public Transaction updateTransaction()
+        public Transaction updateTransaction(Transaction transaction)
         {
             throw new NotImplementedException();
         }

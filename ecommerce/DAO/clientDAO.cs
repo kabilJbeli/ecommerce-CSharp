@@ -23,12 +23,12 @@ namespace ecommerce.ecommerceClasses
             throw new NotImplementedException();
         }
 
-        public void setClient()
+        public void setClient(Client client)
         {
             throw new NotImplementedException();
         }
 
-        public Client updateClient()
+        public Client updateClient(Client client)
         {
             throw new NotImplementedException();
         }

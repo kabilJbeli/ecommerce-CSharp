@@ -8,10 +8,10 @@ namespace ecommerce.ecommerceClasses
 {
     interface transactionInterface
     {
-        void setTransaction();
+        void setTransaction(Transaction transaction);
         Transaction GetTransaction();
         void removeTransaction();
-        Transaction updateTransaction();
+        Transaction updateTransaction(Transaction transaction);
         List<Transaction> getTransactionsList();
     }
 }

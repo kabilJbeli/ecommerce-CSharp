@@ -8,10 +8,10 @@ namespace ecommerce.ecommerceClasses
 {
     interface productInterface
     {
-        void setProduct();
+        void setProduct(Product product);
         Product GetProduct();
         void removeProduct();
-        Product updateProduct();
+        Product updateProduct(Product product);
         List<Product> getProductsList();
 
     }

@@ -13,6 +13,11 @@ namespace ecommerce.ecommerceClasses
             throw new NotImplementedException();
         }
 
+        public Transaction GetTransactionByID(int code)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Transaction> getTransactionsList()
         {
             throw new NotImplementedException();

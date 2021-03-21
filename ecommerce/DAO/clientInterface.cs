@@ -10,10 +10,10 @@ namespace ecommerce.ecommerceClasses
     {
         void setClient(Client client);
         Client GetClient();
+        Client GetClientByID(int code);
         void removeClient();
         Client updateClient(Client client);
         List<Client> getClientsList();
-
 
     }
 }

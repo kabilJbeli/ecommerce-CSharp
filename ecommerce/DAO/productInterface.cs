@@ -10,9 +10,9 @@ namespace ecommerce.ecommerceClasses
     {
         void setProduct(Product product);
         Product GetProduct();
+        Product GetProductByID(int code);
         void removeProduct();
         Product updateProduct(Product product);
         List<Product> getProductsList();
-
     }
 }

@@ -13,6 +13,11 @@ namespace ecommerce.ecommerceClasses
             throw new NotImplementedException();
         }
 
+        public Client GetClientByID(int code)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Client> getClientsList()
         {
             throw new NotImplementedException();

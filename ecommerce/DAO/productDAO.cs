@@ -13,6 +13,11 @@ namespace ecommerce.ecommerceClasses
             throw new NotImplementedException();
         }
 
+        public Product GetProductByID(int code)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Product> getProductsList()
         {
             throw new NotImplementedException();

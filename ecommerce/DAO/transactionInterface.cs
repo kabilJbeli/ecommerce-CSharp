@@ -10,6 +10,7 @@ namespace ecommerce.ecommerceClasses
     {
         void setTransaction(Transaction transaction);
         Transaction GetTransaction();
+        Transaction GetTransactionByID(int code);
         void removeTransaction();
         Transaction updateTransaction(Transaction transaction);
         List<Transaction> getTransactionsList();

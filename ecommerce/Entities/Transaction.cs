@@ -26,5 +26,13 @@ namespace ecommerce.ecommerceClasses
                    code == transaction.code &&
                    transactionDate == transaction.transactionDate;
         }
+
+        public override int GetHashCode()
+        {
+            int hashCode = 1458268427;
+            hashCode = hashCode * -1521134295 + code.GetHashCode();
+            hashCode = hashCode * -1521134295 + transactionDate.GetHashCode();
+            return hashCode;
+        }
     }
 }

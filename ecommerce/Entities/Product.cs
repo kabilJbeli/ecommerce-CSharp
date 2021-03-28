@@ -30,5 +30,14 @@ namespace ecommerce.ecommerceClasses
                    name == product.name &&
                    brand == product.brand;
         }
+
+        public override int GetHashCode()
+        {
+            int hashCode = 2086697472;
+            hashCode = hashCode * -1521134295 + code.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(name);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(brand);
+            return hashCode;
+        }
     }
 }

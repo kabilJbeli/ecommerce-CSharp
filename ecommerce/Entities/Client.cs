@@ -42,5 +42,17 @@ namespace ecommerce.ecommerceClasses
                    email == client.email &&
                    tel == client.tel;
         }
+
+        public override int GetHashCode()
+        {
+            int hashCode = 1996132284;
+            hashCode = hashCode * -1521134295 + code.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(name);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(lastName);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(email);
+            hashCode = hashCode * -1521134295 + tel.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(adress);
+            return hashCode;
+        }
     }
 }

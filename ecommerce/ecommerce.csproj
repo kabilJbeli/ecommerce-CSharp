@@ -52,10 +52,16 @@
     <Compile Include="E-Commerce.Designer.cs">
       <DependentUpon>E-Commerce.cs</DependentUpon>
     </Compile>
-    <Compile Include="ecommerceClasses\exceptions.cs" />
-    <Compile Include="ecommerceClasses\Client.cs" />
-    <Compile Include="ecommerceClasses\Product.cs" />
-    <Compile Include="ecommerceClasses\Transaction.cs" />
+    <Compile Include="DAO\clientDAO.cs" />
+    <Compile Include="DAO\clientInterface.cs" />
+    <Compile Include="Exceptions\exceptions.cs" />
+    <Compile Include="Entities\Client.cs" />
+    <Compile Include="Entities\Product.cs" />
+    <Compile Include="DAO\productDAO.cs" />
+    <Compile Include="DAO\productInterface.cs" />
+    <Compile Include="Entities\Transaction.cs" />
+    <Compile Include="DAO\transactionDAO.cs" />
+    <Compile Include="DAO\transactionInterface.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="E-Commerce.resx">

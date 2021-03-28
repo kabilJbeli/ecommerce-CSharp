@@ -9,16 +9,20 @@ namespace ecommerce.ecommerceClasses
 {
     class Transaction
     {
-        private int code;
+        private string code;
         private DateTime transactionDate;
 
-        public Transaction(int code, DateTime transactionDate)
+        public Transaction()
+        {
+
+        }
+        public Transaction(string code, DateTime transactionDate)
         {
             this.code = code;
             this.transactionDate = transactionDate;
         }
 
-        public int Code { get => code; set => code = value; }
+        public string Code { get => code; set => code = value; }
         public DateTime TransactionDate { get => transactionDate; set => transactionDate = value; }
 
         public override bool Equals(object obj)

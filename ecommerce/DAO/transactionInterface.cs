@@ -9,10 +9,9 @@ namespace ecommerce.ecommerceClasses
     interface transactionInterface
     {
         void setTransaction(Transaction transaction);
-        Transaction GetTransaction();
-        Transaction GetTransactionByID(int code);
-        void removeTransaction();
-        Transaction updateTransaction(Transaction transaction);
+        Transaction GetTransaction(string code);
+        void removeTransaction(string code);
+        void updateTransaction(Transaction transaction);
         List<Transaction> getTransactionsList();
     }
 }

@@ -1,5 +1,8 @@
-﻿using System;
+﻿using ecommerce.DAO;
+using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,34 +11,162 @@ namespace ecommerce.ecommerceClasses
 {
     class TransactionDAO : transactionInterface
     {
-        public Transaction GetTransaction()
+        public Transaction GetTransaction(string code)
         {
-            throw new NotImplementedException();
-        }
 
-        public Transaction GetTransactionByID(int code)
-        {
-            throw new NotImplementedException();
+            SqlConnection conn = connection.GetConnection();
+            DataTable dt = new DataTable();
+            Transaction transaction = new Transaction();
+            try
+            {
+                string req = "select * from transaction where code=@code";
+                SqlCommand cmd = new SqlCommand(req, conn);
+                cmd.Parameters.AddWithValue("@code", code);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                conn.Open();
+                adapter.Fill(dt);
+                DataRow row = (from trans in dt.AsEnumerable()
+                               where trans.Field<string>("code") == code
+                               select trans).First();
+                transaction.TransactionDate =  row.Field<DateTime>("transactionDate");
+                transaction.Code = row.Field<string>("code");
+
+            }
+            catch (Exception e)
+            {
+
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return transaction;
         }
 
         public List<Transaction> getTransactionsList()
         {
-            throw new NotImplementedException();
+
+            SqlConnection conn = connection.GetConnection();
+            DataTable dt = new DataTable();
+            List<Transaction> list = new List<Transaction>();
+            try
+            {
+                string req = "select * from transaction";
+                SqlCommand cmd = new SqlCommand(req, conn);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                conn.Open();
+                adapter.Fill(dt);
+                dt.AsEnumerable();
+                foreach (DataRow row in dt.AsEnumerable())
+                {
+                    Transaction transaction = new Transaction();
+                    transaction.TransactionDate = row.Field<DateTime>("transactionDate");
+                    transaction.Code = row.Field<string>("code");
+                    list.Add(transaction);
+                }
+            }
+            catch (Exception e)
+            {
+
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return list;
         }
 
-        public void removeTransaction()
+        public void removeTransaction(string code)
         {
-            throw new NotImplementedException();
+            SqlConnection conn = connection.GetConnection();
+            try
+            {
+                string req = "DELETE FROM  transaction where code=@code";
+                SqlCommand cmd = new SqlCommand(req, conn);
+                cmd.Parameters.AddWithValue("@code", code);
+
+                conn.Open();
+                int rows = cmd.ExecuteNonQuery();
+                if (rows > 0)
+                {
+                    Console.WriteLine("Transaction was successfully removed");
+                }
+                else
+                {
+                    Console.WriteLine("An error has occured while removing the Transaction");
+                }
+
+            }
+            catch (Exception e)
+            {
+
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         public void setTransaction(Transaction transaction)
         {
-            throw new NotImplementedException();
+            SqlConnection conn = connection.GetConnection();
+            try
+            {
+                string req = "insert into product(code,transactionDate) values(@code,@transactionDate)";
+                SqlCommand cmd = new SqlCommand(req, conn);
+                cmd.Parameters.AddWithValue("@code", transaction.Code);
+                cmd.Parameters.AddWithValue("@transactionDate", transaction.TransactionDate);
+                int rows = cmd.ExecuteNonQuery();
+                if (rows > 0)
+                {
+                    Console.WriteLine("Transaction was added with success");
+                }
+                else
+                {
+                    Console.WriteLine("An error has occured while adding the transaction");
+                }
+
+            }
+            catch (Exception e)
+            {
+
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
 
-        public Transaction updateTransaction(Transaction transaction)
+        public void updateTransaction(Transaction transaction)
         {
-            throw new NotImplementedException();
+
+            SqlConnection conn = connection.GetConnection();
+            try
+            {
+                string req = "update transaction set transactionDate=@transactionDate where code=@code";
+                SqlCommand cmd = new SqlCommand(req, conn);
+                cmd.Parameters.AddWithValue("@code", transaction.Code);
+                cmd.Parameters.AddWithValue("@transactionDate", transaction.TransactionDate);
+                conn.Open();
+                int rows = cmd.ExecuteNonQuery();
+                if (rows > 0)
+                {
+                    Console.WriteLine("Transaction was successfully updated");
+                }
+                else
+                {
+                    Console.WriteLine("An error has occured while updating the transaction");
+                }
+
+            }
+            catch (Exception e)
+            {
+
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
     }
 }

@@ -103,7 +103,6 @@ namespace ecommerce.ecommerceClasses
             {
                 conn.Close();
             }
-            throw new NotImplementedException();
         }
 
         public void setProduct(Product product)
@@ -134,7 +133,6 @@ namespace ecommerce.ecommerceClasses
             {
                 conn.Close();
             }
-            throw new NotImplementedException();
         }
 
         public void updateProduct(Product product)
@@ -168,7 +166,6 @@ namespace ecommerce.ecommerceClasses
             {
                 conn.Close();
             }
-            throw new NotImplementedException();
         }
     }
 }

@@ -8,3 +8,5 @@ C:\Users\kabil\source\repos\ecommerce\ecommerce\obj\Debug\ecommerce.csproj.Gener
 C:\Users\kabil\source\repos\ecommerce\ecommerce\obj\Debug\ecommerce.csproj.CoreCompileInputs.cache
 C:\Users\kabil\source\repos\ecommerce\ecommerce\obj\Debug\ecommerce.exe
 C:\Users\kabil\source\repos\ecommerce\ecommerce\obj\Debug\ecommerce.pdb
+C:\Users\kabil\source\repos\ecommerce\ecommerce\obj\Debug\ecommerce.Form2.resources
+C:\Users\kabil\source\repos\ecommerce\ecommerce\obj\Debug\ecommerce.productList.resources

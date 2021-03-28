@@ -9,18 +9,22 @@ namespace ecommerce.ecommerceClasses
 {
     class Product
     {
-        private int code;
+        private string code;
         private string name;
         private string brand;
+        public Product()
+        {
 
-        public Product(int code, string name, string brand)
+        }
+
+        public Product(string code, string name, string brand)
         {
             this.Code = code;
             this.Name = name;
             this.Brand = brand;
         }
 
-        public int Code { get => code; set => code = value; }
+        public string Code { get => code; set => code = value; }
         public string Name { get => name; set => name = value; }
         public string Brand { get => brand; set => brand = value; }
 

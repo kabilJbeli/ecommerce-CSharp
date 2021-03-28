@@ -44,7 +44,6 @@ namespace ecommerce.ecommerceClasses
                 conn.Close();
             }
             return cl;
-            throw new NotImplementedException();
         }
 
         public List<Client> getClientsList()
@@ -154,7 +153,7 @@ namespace ecommerce.ecommerceClasses
             throw new NotImplementedException();
         }
 
-        public Client updateClient(Client client)
+        public void updateClient(Client client)
         {
 
             SqlConnection conn = connection.GetConnection();
@@ -189,7 +188,6 @@ namespace ecommerce.ecommerceClasses
             {
                 conn.Close();
             }
-            throw new NotImplementedException();
         }
     }
 }

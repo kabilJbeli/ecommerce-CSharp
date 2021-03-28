@@ -9,10 +9,9 @@ namespace ecommerce.ecommerceClasses
     interface productInterface
     {
         void setProduct(Product product);
-        Product GetProduct();
-        Product GetProductByID(int code);
-        void removeProduct();
-        Product updateProduct(Product product);
+        Product GetProduct(string code);
+        void removeProduct(string code);
+        void updateProduct(Product product);
         List<Product> getProductsList();
     }
 }

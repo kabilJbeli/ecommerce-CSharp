@@ -11,7 +11,7 @@ namespace ecommerce.ecommerceClasses
         void setClient(Client client);
         Client GetClient(string code);
         void removeClient(string code);
-        Client updateClient(Client client);
+        void updateClient(Client client);
         List<Client> getClientsList();
 
     }

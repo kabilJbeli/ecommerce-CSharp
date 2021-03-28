@@ -1,4 +1,7 @@
 ﻿
+using ecommerce.ecommerceClasses;
+using System;
+
 namespace ecommerce
 {
     partial class Form1
@@ -20,6 +23,7 @@ namespace ecommerce
             }
             base.Dispose(disposing);
         }
+     
 
         #region Code généré par le Concepteur Windows Form
 
@@ -40,6 +44,7 @@ namespace ecommerce
             this.transactionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createATransactionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,14 +75,14 @@ namespace ecommerce
             // addProductToolStripMenuItem
             // 
             this.addProductToolStripMenuItem.Name = "addProductToolStripMenuItem";
-            this.addProductToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.addProductToolStripMenuItem.Size = new System.Drawing.Size(213, 26);
             this.addProductToolStripMenuItem.Text = "Add  New Product";
             this.addProductToolStripMenuItem.Click += new System.EventHandler(this.addProductToolStripMenuItem_Click);
             // 
             // productsListToolStripMenuItem
             // 
             this.productsListToolStripMenuItem.Name = "productsListToolStripMenuItem";
-            this.productsListToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.productsListToolStripMenuItem.Size = new System.Drawing.Size(213, 26);
             this.productsListToolStripMenuItem.Text = "Products List";
             // 
             // clientsToolStripMenuItem
@@ -92,13 +97,13 @@ namespace ecommerce
             // addClientToolStripMenuItem
             // 
             this.addClientToolStripMenuItem.Name = "addClientToolStripMenuItem";
-            this.addClientToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.addClientToolStripMenuItem.Size = new System.Drawing.Size(196, 26);
             this.addClientToolStripMenuItem.Text = "Add New Client";
             // 
             // clientListsToolStripMenuItem
             // 
             this.clientListsToolStripMenuItem.Name = "clientListsToolStripMenuItem";
-            this.clientListsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.clientListsToolStripMenuItem.Size = new System.Drawing.Size(196, 26);
             this.clientListsToolStripMenuItem.Text = "Client Lists";
             // 
             // transactionsToolStripMenuItem
@@ -125,12 +130,23 @@ namespace ecommerce
             this.statusStrip1.Text = "statusStrip1";
             this.statusStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.statusStrip1_ItemClicked_1);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(196, 153);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(146, 56);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.ajoutProduct);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1316, 559);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -156,6 +172,7 @@ namespace ecommerce
         private System.Windows.Forms.ToolStripMenuItem transactionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createATransactionToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.Button button1;
     }
 }
 

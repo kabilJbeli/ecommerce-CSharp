@@ -14,6 +14,8 @@ namespace ecommerce.ecommerceClasses
         public Client GetClient(string code)
         {
             SqlConnection conn = connection.GetConnection();
+            conn.Open();
+
             DataTable dt = new DataTable();
             Client cl = new Client();
             try
@@ -49,6 +51,8 @@ namespace ecommerce.ecommerceClasses
         public List<Client> getClientsList()
         {
             SqlConnection conn = connection.GetConnection();
+            conn.Open();
+
             DataTable dt = new DataTable();
             List<Client> list = new List<Client>();
             try
@@ -86,6 +90,8 @@ namespace ecommerce.ecommerceClasses
         public void removeClient(string code)
         {
             SqlConnection conn = connection.GetConnection();
+            conn.Open();
+
             try
             {
                 string req = "DELETE FROM  client where code=@code";
@@ -119,6 +125,8 @@ namespace ecommerce.ecommerceClasses
         public void setClient(Client client)
         {
             SqlConnection conn = connection.GetConnection();
+            conn.Open();
+
             try
             {
                 string req = "insert into client(code,adress,email,name,lastName,tel) values(@code,@adress,@email,@name,@lastName,@tel)";
@@ -157,6 +165,8 @@ namespace ecommerce.ecommerceClasses
         {
 
             SqlConnection conn = connection.GetConnection();
+            conn.Open();
+
             try
             {
                 string req = "update client set adress=@adress, email=@email, name=@name, lastName=@lastName, tel=@tel where code=@code";

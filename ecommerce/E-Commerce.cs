@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ecommerce.ecommerceClasses;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -50,6 +51,14 @@ namespace ecommerce
         private void statusStrip1_ItemClicked_1(object sender, ToolStripItemClickedEventArgs e)
         {
 
+        }
+
+        private void ajoutProduct(object sender, EventArgs e)
+        {
+            Console.WriteLine("button clicked");
+            Product pd = new Product("dfdf9f89", "test", "tetlkmlk");
+            ProductDAO dpd = new ProductDAO();
+            dpd.setProduct(pd);
         }
     }
 }

@@ -15,6 +15,7 @@ namespace ecommerce.ecommerceClasses
         {
 
             SqlConnection conn = connection.GetConnection();
+            conn.Open();
             DataTable dt = new DataTable();
             Product product = new Product();
             try
@@ -45,6 +46,8 @@ namespace ecommerce.ecommerceClasses
         public List<Product> getProductsList()
         {
             SqlConnection conn = connection.GetConnection();
+            conn.Open();
+
             DataTable dt = new DataTable();
             List<Product> list = new List<Product>();
             try
@@ -77,6 +80,8 @@ namespace ecommerce.ecommerceClasses
         public void removeProduct(string code)
         {
             SqlConnection conn = connection.GetConnection();
+            conn.Open();
+
             try
             {
                 string req = "DELETE FROM  product where code=@code";
@@ -108,12 +113,16 @@ namespace ecommerce.ecommerceClasses
         public void setProduct(Product product)
         {
             SqlConnection conn = connection.GetConnection();
+            conn.Open();
+
             try
             {
-                string req = "insert into product(code,brand) values(@code,@brand)";
+                string req = "insert into product(code,brand,name) values(@code,@brand,@name)";
                 SqlCommand cmd = new SqlCommand(req, conn);
                 cmd.Parameters.AddWithValue("@code", product.Code);
                 cmd.Parameters.AddWithValue("@brand", product.Brand);
+                cmd.Parameters.AddWithValue("@name", product.Name);
+
                 int rows = cmd.ExecuteNonQuery();
                 if (rows > 0)
                 {
@@ -127,7 +136,7 @@ namespace ecommerce.ecommerceClasses
             }
             catch (Exception e)
             {
-
+                Console.WriteLine(e);
             }
             finally
             {
@@ -139,6 +148,8 @@ namespace ecommerce.ecommerceClasses
         {
 
             SqlConnection conn = connection.GetConnection();
+            conn.Open();
+
             try
             {
                 string req = "update client set brand=@brand where code=@code";

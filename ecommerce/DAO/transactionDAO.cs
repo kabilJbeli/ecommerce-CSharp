@@ -15,6 +15,8 @@ namespace ecommerce.ecommerceClasses
         {
 
             SqlConnection conn = connection.GetConnection();
+            conn.Open();
+
             DataTable dt = new DataTable();
             Transaction transaction = new Transaction();
             try
@@ -47,6 +49,8 @@ namespace ecommerce.ecommerceClasses
         {
 
             SqlConnection conn = connection.GetConnection();
+            conn.Open();
+
             DataTable dt = new DataTable();
             List<Transaction> list = new List<Transaction>();
             try
@@ -79,6 +83,8 @@ namespace ecommerce.ecommerceClasses
         public void removeTransaction(string code)
         {
             SqlConnection conn = connection.GetConnection();
+            conn.Open();
+
             try
             {
                 string req = "DELETE FROM  transaction where code=@code";
@@ -110,6 +116,8 @@ namespace ecommerce.ecommerceClasses
         public void setTransaction(Transaction transaction)
         {
             SqlConnection conn = connection.GetConnection();
+            conn.Open();
+
             try
             {
                 string req = "insert into product(code,transactionDate) values(@code,@transactionDate)";
@@ -141,6 +149,8 @@ namespace ecommerce.ecommerceClasses
         {
 
             SqlConnection conn = connection.GetConnection();
+            conn.Open();
+
             try
             {
                 string req = "update transaction set transactionDate=@transactionDate where code=@code";

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,14 +10,17 @@ namespace ecommerce.ecommerceClasses
     class Client
     {
 
-        private int code;
+        private string code;
         private string name;
         private string lastName;
         private string email;
         private int tel;
         private string adress;
+        public Client()
+        {
 
-        public Client(int code, string name, string lastName, string email, int tel, string adress)
+        }
+        public Client(string code, string name, string lastName, string email, int tel, string adress)
         {
             this.code = code;
             this.name = name;
@@ -26,7 +30,7 @@ namespace ecommerce.ecommerceClasses
             this.adress = adress;
         }
 
-        public int Code { get => code; set => code = value; }
+        public string Code { get => code; set => code = value; }
         public string Name { get => name; set => name = value; }
         public string LastName { get => lastName; set => lastName = value; }
         public string Email { get => email; set => email = value; }
@@ -54,5 +58,7 @@ namespace ecommerce.ecommerceClasses
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(adress);
             return hashCode;
         }
+
+        static string myconstrng = ConfigurationManager.ConnectionStrings["connstrng"].ConnectionString;
     }
 }

@@ -9,9 +9,8 @@ namespace ecommerce.ecommerceClasses
     interface clientInterface
     {
         void setClient(Client client);
-        Client GetClient();
-        Client GetClientByID(int code);
-        void removeClient();
+        Client GetClient(string code);
+        void removeClient(string code);
         Client updateClient(Client client);
         List<Client> getClientsList();
 

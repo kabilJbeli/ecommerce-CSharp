@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,5 +40,8 @@ namespace ecommerce.ecommerceClasses
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(brand);
             return hashCode;
         }
+
+        static string myconstrng = ConfigurationManager.ConnectionStrings["connstrng"].ConnectionString;
+
     }
 }

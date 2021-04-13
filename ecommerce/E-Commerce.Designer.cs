@@ -44,6 +44,13 @@ namespace ecommerce
             this.transactionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createATransactionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.modifyProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modifyClientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteClientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.transactionsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.modifyTransactionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteTransactionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,7 +72,9 @@ namespace ecommerce
             // 
             this.productToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addProductToolStripMenuItem,
-            this.productsListToolStripMenuItem});
+            this.productsListToolStripMenuItem,
+            this.modifyProductToolStripMenuItem,
+            this.deleteProductToolStripMenuItem});
             this.productToolStripMenuItem.Name = "productToolStripMenuItem";
             this.productToolStripMenuItem.Size = new System.Drawing.Size(80, 24);
             this.productToolStripMenuItem.Text = "Products";
@@ -90,7 +99,9 @@ namespace ecommerce
             // 
             this.clientsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addClientToolStripMenuItem,
-            this.clientListsToolStripMenuItem});
+            this.clientListsToolStripMenuItem,
+            this.modifyClientToolStripMenuItem,
+            this.deleteClientToolStripMenuItem});
             this.clientsToolStripMenuItem.Name = "clientsToolStripMenuItem";
             this.clientsToolStripMenuItem.Size = new System.Drawing.Size(67, 24);
             this.clientsToolStripMenuItem.Text = "Clients";
@@ -98,19 +109,23 @@ namespace ecommerce
             // addClientToolStripMenuItem
             // 
             this.addClientToolStripMenuItem.Name = "addClientToolStripMenuItem";
-            this.addClientToolStripMenuItem.Size = new System.Drawing.Size(196, 26);
+            this.addClientToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.addClientToolStripMenuItem.Text = "Add New Client";
+            this.addClientToolStripMenuItem.Click += new System.EventHandler(this.addClientToolStripMenuItem_Click);
             // 
             // clientListsToolStripMenuItem
             // 
             this.clientListsToolStripMenuItem.Name = "clientListsToolStripMenuItem";
-            this.clientListsToolStripMenuItem.Size = new System.Drawing.Size(196, 26);
+            this.clientListsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.clientListsToolStripMenuItem.Text = "Client Lists";
             // 
             // transactionsToolStripMenuItem
             // 
             this.transactionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.createATransactionToolStripMenuItem});
+            this.createATransactionToolStripMenuItem,
+            this.transactionsToolStripMenuItem1,
+            this.modifyTransactionToolStripMenuItem,
+            this.deleteTransactionToolStripMenuItem});
             this.transactionsToolStripMenuItem.Name = "transactionsToolStripMenuItem";
             this.transactionsToolStripMenuItem.Size = new System.Drawing.Size(104, 24);
             this.transactionsToolStripMenuItem.Text = "Transactions";
@@ -130,6 +145,48 @@ namespace ecommerce
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             this.statusStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.statusStrip1_ItemClicked_1);
+            // 
+            // modifyProductToolStripMenuItem
+            // 
+            this.modifyProductToolStripMenuItem.Name = "modifyProductToolStripMenuItem";
+            this.modifyProductToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.modifyProductToolStripMenuItem.Text = "Modify Product";
+            // 
+            // deleteProductToolStripMenuItem
+            // 
+            this.deleteProductToolStripMenuItem.Name = "deleteProductToolStripMenuItem";
+            this.deleteProductToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.deleteProductToolStripMenuItem.Text = "Delete Product";
+            // 
+            // modifyClientToolStripMenuItem
+            // 
+            this.modifyClientToolStripMenuItem.Name = "modifyClientToolStripMenuItem";
+            this.modifyClientToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.modifyClientToolStripMenuItem.Text = "Modify Client";
+            // 
+            // deleteClientToolStripMenuItem
+            // 
+            this.deleteClientToolStripMenuItem.Name = "deleteClientToolStripMenuItem";
+            this.deleteClientToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.deleteClientToolStripMenuItem.Text = "Delete Client";
+            // 
+            // transactionsToolStripMenuItem1
+            // 
+            this.transactionsToolStripMenuItem1.Name = "transactionsToolStripMenuItem1";
+            this.transactionsToolStripMenuItem1.Size = new System.Drawing.Size(228, 26);
+            this.transactionsToolStripMenuItem1.Text = "Transactions";
+            // 
+            // modifyTransactionToolStripMenuItem
+            // 
+            this.modifyTransactionToolStripMenuItem.Name = "modifyTransactionToolStripMenuItem";
+            this.modifyTransactionToolStripMenuItem.Size = new System.Drawing.Size(228, 26);
+            this.modifyTransactionToolStripMenuItem.Text = "Modify Transaction";
+            // 
+            // deleteTransactionToolStripMenuItem
+            // 
+            this.deleteTransactionToolStripMenuItem.Name = "deleteTransactionToolStripMenuItem";
+            this.deleteTransactionToolStripMenuItem.Size = new System.Drawing.Size(228, 26);
+            this.deleteTransactionToolStripMenuItem.Text = "Delete Transaction";
             // 
             // Form1
             // 
@@ -163,6 +220,13 @@ namespace ecommerce
         private System.Windows.Forms.ToolStripMenuItem transactionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createATransactionToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripMenuItem modifyProductToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteProductToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem modifyClientToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteClientToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem transactionsToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem modifyTransactionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteTransactionToolStripMenuItem;
     }
 }
 

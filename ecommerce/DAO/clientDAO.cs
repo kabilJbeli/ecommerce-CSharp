@@ -24,7 +24,6 @@ namespace ecommerce.ecommerceClasses
                 SqlCommand cmd = new SqlCommand(req, conn);
                 cmd.Parameters.AddWithValue("@code", code);
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                conn.Open();
                 adapter.Fill(dt);
                 DataRow row = (from client in dt.AsEnumerable()
                                where client.Field<string>("code") == code
@@ -60,7 +59,6 @@ namespace ecommerce.ecommerceClasses
                 string req = "select * from client";
                 SqlCommand cmd = new SqlCommand(req, conn);
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                conn.Open();
                 adapter.Fill(dt);
                 dt.AsEnumerable();
                 foreach( DataRow row in dt.AsEnumerable())
@@ -96,9 +94,7 @@ namespace ecommerce.ecommerceClasses
             {
                 string req = "DELETE FROM  client where code=@code";
                 SqlCommand cmd = new SqlCommand(req, conn);
-                cmd.Parameters.AddWithValue("@code", code);
-            
-                conn.Open();
+                cmd.Parameters.AddWithValue("@code", code);            
                 int rows = cmd.ExecuteNonQuery();
                 if (rows > 0)
                 {
@@ -119,7 +115,6 @@ namespace ecommerce.ecommerceClasses
             {
                 conn.Close();
             }
-            throw new NotImplementedException();
         }
 
         public void setClient(Client client)
@@ -137,7 +132,6 @@ namespace ecommerce.ecommerceClasses
                 cmd.Parameters.AddWithValue("@name", client.Name);
                 cmd.Parameters.AddWithValue("@lastName", client.LastName);
                 cmd.Parameters.AddWithValue("@tel", client.Tel);
-                conn.Open();
                 int rows = cmd.ExecuteNonQuery();
                 if(rows > 0)
                 {
@@ -152,13 +146,12 @@ namespace ecommerce.ecommerceClasses
             }
             catch (Exception e)
             {
-
+                Console.WriteLine(e);
             }
             finally
             {
                 conn.Close();
             }
-            throw new NotImplementedException();
         }
 
         public void updateClient(Client client)
@@ -177,7 +170,6 @@ namespace ecommerce.ecommerceClasses
                 cmd.Parameters.AddWithValue("@name", client.Name);
                 cmd.Parameters.AddWithValue("@lastName", client.LastName);
                 cmd.Parameters.AddWithValue("@tel", client.Tel);
-                conn.Open();
                 int rows = cmd.ExecuteNonQuery();
                 if (rows > 0)
                 {

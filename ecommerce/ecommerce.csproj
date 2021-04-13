@@ -47,6 +47,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClientAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientAdd.Designer.cs">
+      <DependentUpon>ClientAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DAO\clientProductsDAO.cs" />
+    <Compile Include="DAO\clientProductsInterface.cs" />
     <Compile Include="DAO\connection.cs" />
     <Compile Include="E-Commerce.cs">
       <SubType>Form</SubType>
@@ -56,16 +64,7 @@
     </Compile>
     <Compile Include="DAO\clientDAO.cs" />
     <Compile Include="DAO\clientInterface.cs" />
-    <Compile Include="ecommerceDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ecommerceDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="ecommerceDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ecommerceDataSet1.xsd</DependentUpon>
-    </Compile>
+    <Compile Include="Entities\ClientProducts.cs" />
     <Compile Include="Exceptions\exceptions.cs" />
     <Compile Include="Entities\Client.cs" />
     <Compile Include="Entities\Product.cs" />
@@ -80,22 +79,25 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
-    <Compile Include="productList.cs">
+    <Compile Include="productsList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="productList.Designer.cs">
-      <DependentUpon>productList.cs</DependentUpon>
+    <Compile Include="productsList.Designer.cs">
+      <DependentUpon>productsList.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ClientAdd.resx">
+      <DependentUpon>ClientAdd.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="E-Commerce.resx">
       <DependentUpon>E-Commerce.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="productList.resx">
-      <DependentUpon>productList.cs</DependentUpon>
+    <EmbeddedResource Include="productsList.resx">
+      <DependentUpon>productsList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -106,29 +108,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="ecommerceDataSet.xsc">
-      <DependentUpon>ecommerceDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="ecommerceDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>ecommerceDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="ecommerceDataSet.xss">
-      <DependentUpon>ecommerceDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="ecommerceDataSet1.xsc">
-      <DependentUpon>ecommerceDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="ecommerceDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>ecommerceDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="ecommerceDataSet1.xss">
-      <DependentUpon>ecommerceDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="Properties\DataSources\ecommerce.ecommerceClasses.Product.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

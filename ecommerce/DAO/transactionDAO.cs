@@ -25,7 +25,6 @@ namespace ecommerce.ecommerceClasses
                 SqlCommand cmd = new SqlCommand(req, conn);
                 cmd.Parameters.AddWithValue("@code", code);
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                conn.Open();
                 adapter.Fill(dt);
                 DataRow row = (from trans in dt.AsEnumerable()
                                where trans.Field<string>("code") == code
@@ -58,7 +57,6 @@ namespace ecommerce.ecommerceClasses
                 string req = "select * from transaction";
                 SqlCommand cmd = new SqlCommand(req, conn);
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                conn.Open();
                 adapter.Fill(dt);
                 dt.AsEnumerable();
                 foreach (DataRow row in dt.AsEnumerable())
@@ -90,8 +88,6 @@ namespace ecommerce.ecommerceClasses
                 string req = "DELETE FROM  transaction where code=@code";
                 SqlCommand cmd = new SqlCommand(req, conn);
                 cmd.Parameters.AddWithValue("@code", code);
-
-                conn.Open();
                 int rows = cmd.ExecuteNonQuery();
                 if (rows > 0)
                 {
@@ -157,7 +153,6 @@ namespace ecommerce.ecommerceClasses
                 SqlCommand cmd = new SqlCommand(req, conn);
                 cmd.Parameters.AddWithValue("@code", transaction.Code);
                 cmd.Parameters.AddWithValue("@transactionDate", transaction.TransactionDate);
-                conn.Open();
                 int rows = cmd.ExecuteNonQuery();
                 if (rows > 0)
                 {

@@ -52,16 +52,16 @@ namespace ecommerce.ecommerceClasses
             List<Product> list = new List<Product>();
             try
             {
-                string req = "select * from client";
+                string req = "select * from product";
                 SqlCommand cmd = new SqlCommand(req, conn);
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                conn.Open();
                 adapter.Fill(dt);
                 dt.AsEnumerable();
                 foreach (DataRow row in dt.AsEnumerable())
                 {
                     Product product = new Product();
                     product.Brand = row.Field<string>("brand");
+                    product.Name = row.Field<string>("name");
                     product.Code = row.Field<string>("code");
                     list.Add(product);
                 }
@@ -87,8 +87,6 @@ namespace ecommerce.ecommerceClasses
                 string req = "DELETE FROM  product where code=@code";
                 SqlCommand cmd = new SqlCommand(req, conn);
                 cmd.Parameters.AddWithValue("@code", code);
-
-                conn.Open();
                 int rows = cmd.ExecuteNonQuery();
                 if (rows > 0)
                 {
@@ -156,7 +154,6 @@ namespace ecommerce.ecommerceClasses
                 SqlCommand cmd = new SqlCommand(req, conn);
                 cmd.Parameters.AddWithValue("@code", product.Code);
                 cmd.Parameters.AddWithValue("@brand", product.Brand);
-                conn.Open();
                 int rows = cmd.ExecuteNonQuery();
                 if (rows > 0)
                 {

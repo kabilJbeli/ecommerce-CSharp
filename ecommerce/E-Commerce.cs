@@ -71,8 +71,17 @@ namespace ecommerce
 
         private void gotoproductlist(object sender, EventArgs e)
         {
-            productList p = new productList();
-            p.Show();
+
+            productsList pd = new productsList();
+            pd.Show();
+            this.Hide();
+
+        }
+
+        private void addClientToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClientAdd f = new ClientAdd();
+            f.Show();
             this.Hide();
 
         }

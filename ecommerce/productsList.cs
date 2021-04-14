@@ -25,31 +25,39 @@ namespace ecommerce
 
         private void productsList_Load(object sender, EventArgs e)
         {
-            TableLayoutPanel panel = new TableLayoutPanel();
-            panel.Location = new Point(0, 26);
-            panel.Width = 1000;
-            panel.Height = 1000;
-            panel.ColumnCount = 3;
-            panel.RowCount = 1;
-            panel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
-            panel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
-            panel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
-           // panel.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
-            panel.Controls.Add(new Label() { Text = "Code" }, 1, 0);
-            panel.Controls.Add(new Label() { Text = "Brand" }, 2, 0);
-            panel.Controls.Add(new Label() { Text = "Name" }, 3, 0);
+            DataTable table = GetTable();
+            DataGridView dt = new DataGridView();
+            dt.Location = new Point(30, 26);
+            dt.Visible = true;
+            dt.DataSource = table;
+            dt.AutoSize=true;
+            dt.Refresh();
+            Controls.Add(dt);
+            this.statusLabel.Text = "Products List";
+            this.statusStrip1.Refresh();
+        }
 
+        static DataTable GetTable()
+        {
+            // Step 2: here we create a DataTable.
+            // ... We add 4 columns, each with a Type.
+            DataTable table = new DataTable();
+            table.Columns.Add("Code", typeof(string));
+            table.Columns.Add("Brand", typeof(string));
+            table.Columns.Add("Name", typeof(string));
+
+            // Step 3: here we add rows.
             ProductDAO productsDAO = new ProductDAO();
-            List<Product> products= productsDAO.getProductsList();
-            products.ForEach( item => {
-                panel.RowCount = panel.RowCount + 1;
-              panel.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
-                panel.Controls.Add(new Label() { Text = item.Code }, 1, panel.RowCount - 1);
-                panel.Controls.Add(new Label() { Text = item.Brand }, 2, panel.RowCount - 1);
-                panel.Controls.Add(new Label() { Text = item.Name }, 3, panel.RowCount - 1);
-
+            List<Product> products = productsDAO.getProductsList();
+            products.ForEach(item => {
+                var row = table.NewRow();
+                row["Code"] = item.Code;
+                row["Brand"] = item.Brand;
+                row["Name"] = item.Name;
+                table.Rows.Add(row);
             });
-            Controls.Add(panel);
+          
+            return table;
         }
     }
 }

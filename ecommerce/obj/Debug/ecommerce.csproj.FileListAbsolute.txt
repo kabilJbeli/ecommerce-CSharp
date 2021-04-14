@@ -11,3 +11,4 @@ C:\Users\kabil\source\repos\ecommerce\ecommerce\obj\Debug\ecommerce.pdb
 C:\Users\kabil\source\repos\ecommerce\ecommerce\obj\Debug\ecommerce.Form2.resources
 C:\Users\kabil\source\repos\ecommerce\ecommerce\obj\Debug\ecommerce.ClientAdd.resources
 C:\Users\kabil\source\repos\ecommerce\ecommerce\obj\Debug\ecommerce.productsList.resources
+C:\Users\kabil\source\repos\ecommerce\ecommerce\obj\Debug\ecommerce.removeProduct.resources

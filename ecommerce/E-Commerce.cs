@@ -21,7 +21,7 @@ namespace ecommerce
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            this.statusLabel.Text = "Home";  
         }
 
         private void cToolStripMenuItem_Click(object sender, EventArgs e)
@@ -84,6 +84,18 @@ namespace ecommerce
             f.Show();
             this.Hide();
 
+        }
+
+        private void toolStripStatusLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void deleteProduct(object sender, EventArgs e)
+        {
+            removeProduct rP = new removeProduct();
+            rP.Show();
+            this.Hide();
         }
     }
 }

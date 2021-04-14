@@ -42,30 +42,35 @@ namespace ecommerce
             this.clientCode = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.addClient = new System.Windows.Forms.Button();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 107);
+            this.label1.Location = new System.Drawing.Point(664, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(84, 17);
             this.label1.TabIndex = 2;
             this.label1.Text = "Client Name";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // clientName
             // 
-            this.clientName.Location = new System.Drawing.Point(12, 55);
+            this.clientName.Location = new System.Drawing.Point(124, 3);
             this.clientName.Multiline = true;
             this.clientName.Name = "clientName";
-            this.clientName.Size = new System.Drawing.Size(1289, 36);
+            this.clientName.Size = new System.Drawing.Size(534, 36);
             this.clientName.TabIndex = 3;
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 175);
+            this.label2.Location = new System.Drawing.Point(3, 54);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(115, 17);
             this.label2.TabIndex = 4;
@@ -74,49 +79,52 @@ namespace ecommerce
             // 
             // clientLastName
             // 
-            this.clientLastName.Location = new System.Drawing.Point(12, 127);
+            this.clientLastName.Location = new System.Drawing.Point(754, 3);
             this.clientLastName.Multiline = true;
             this.clientLastName.Name = "clientLastName";
-            this.clientLastName.Size = new System.Drawing.Size(1289, 36);
+            this.clientLastName.Size = new System.Drawing.Size(535, 36);
             this.clientLastName.TabIndex = 5;
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 245);
+            this.label3.Location = new System.Drawing.Point(664, 54);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(42, 17);
             this.label3.TabIndex = 6;
             this.label3.Text = "Email";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // clientEmail
             // 
-            this.clientEmail.Location = new System.Drawing.Point(12, 195);
+            this.clientEmail.Location = new System.Drawing.Point(124, 45);
             this.clientEmail.Multiline = true;
             this.clientEmail.Name = "clientEmail";
-            this.clientEmail.Size = new System.Drawing.Size(1289, 34);
+            this.clientEmail.Size = new System.Drawing.Size(534, 34);
             this.clientEmail.TabIndex = 7;
             // 
             // clientTel
             // 
-            this.clientTel.Location = new System.Drawing.Point(12, 265);
+            this.clientTel.Location = new System.Drawing.Point(754, 45);
             this.clientTel.Multiline = true;
             this.clientTel.Name = "clientTel";
-            this.clientTel.Size = new System.Drawing.Size(1289, 36);
+            this.clientTel.Size = new System.Drawing.Size(535, 36);
             this.clientTel.TabIndex = 8;
             // 
             // clientAdress
             // 
-            this.clientAdress.Location = new System.Drawing.Point(12, 337);
+            this.clientAdress.Location = new System.Drawing.Point(124, 87);
             this.clientAdress.Multiline = true;
             this.clientAdress.Name = "clientAdress";
-            this.clientAdress.Size = new System.Drawing.Size(1289, 36);
+            this.clientAdress.Size = new System.Drawing.Size(534, 36);
             this.clientAdress.TabIndex = 9;
             // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 317);
+            this.label4.Location = new System.Drawing.Point(3, 96);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(28, 17);
             this.label4.TabIndex = 10;
@@ -125,8 +133,9 @@ namespace ecommerce
             // 
             // label5
             // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 388);
+            this.label5.Location = new System.Drawing.Point(664, 96);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(52, 17);
             this.label5.TabIndex = 11;
@@ -134,16 +143,17 @@ namespace ecommerce
             // 
             // clientCode
             // 
-            this.clientCode.Location = new System.Drawing.Point(12, 408);
+            this.clientCode.Location = new System.Drawing.Point(754, 87);
             this.clientCode.Multiline = true;
             this.clientCode.Name = "clientCode";
-            this.clientCode.Size = new System.Drawing.Size(1289, 36);
+            this.clientCode.Size = new System.Drawing.Size(535, 36);
             this.clientCode.TabIndex = 13;
             // 
             // label6
             // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(9, 35);
+            this.label6.Location = new System.Drawing.Point(3, 12);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(80, 17);
             this.label6.TabIndex = 12;
@@ -152,7 +162,8 @@ namespace ecommerce
             // 
             // addClient
             // 
-            this.addClient.Location = new System.Drawing.Point(12, 468);
+            this.addClient.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.addClient.Location = new System.Drawing.Point(124, 150);
             this.addClient.Name = "addClient";
             this.addClient.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.addClient.Size = new System.Drawing.Size(159, 39);
@@ -161,38 +172,47 @@ namespace ecommerce
             this.addClient.UseVisualStyleBackColor = true;
             this.addClient.Click += new System.EventHandler(this.addClient_Click);
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 4;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.label6, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.addClient, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.clientName, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.clientCode, 3, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label5, 2, 2);
+            this.tableLayoutPanel1.Controls.Add(this.clientLastName, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.clientAdress, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label4, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.clientEmail, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.clientTel, 3, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label3, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label1, 2, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 72);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 4;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1292, 214);
+            this.tableLayoutPanel1.TabIndex = 15;
+            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
+            // 
             // ClientAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.ClientSize = new System.Drawing.Size(1316, 559);
-            this.Controls.Add(this.addClient);
-            this.Controls.Add(this.clientCode);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.clientAdress);
-            this.Controls.Add(this.clientTel);
-            this.Controls.Add(this.clientEmail);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.clientLastName);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.clientName);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "ClientAdd";
             this.Load += new System.EventHandler(this.ClientAdd_Load);
-            this.Controls.SetChildIndex(this.label1, 0);
-            this.Controls.SetChildIndex(this.clientName, 0);
-            this.Controls.SetChildIndex(this.label2, 0);
-            this.Controls.SetChildIndex(this.clientLastName, 0);
-            this.Controls.SetChildIndex(this.label3, 0);
-            this.Controls.SetChildIndex(this.clientEmail, 0);
-            this.Controls.SetChildIndex(this.clientTel, 0);
-            this.Controls.SetChildIndex(this.clientAdress, 0);
-            this.Controls.SetChildIndex(this.label4, 0);
-            this.Controls.SetChildIndex(this.label5, 0);
-            this.Controls.SetChildIndex(this.label6, 0);
-            this.Controls.SetChildIndex(this.clientCode, 0);
-            this.Controls.SetChildIndex(this.addClient, 0);
+            this.Controls.SetChildIndex(this.tableLayoutPanel1, 0);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -213,5 +233,6 @@ namespace ecommerce
         private System.Windows.Forms.TextBox clientCode;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button addClient;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }

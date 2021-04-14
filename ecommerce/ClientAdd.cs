@@ -28,6 +28,8 @@ namespace ecommerce
 
         private void ClientAdd_Load(object sender, EventArgs e)
         {
+            this.statusLabel.Text = "Add Client";        
+            this.statusStrip1.Refresh();
 
         }
 
@@ -52,6 +54,11 @@ namespace ecommerce
             Client client = new Client(code, clientName, clientLastName,email,tel,adress);
             ClientDAO clientDAO = new ClientDAO();
             clientDAO.setClient(client);
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -1,0 +1,13 @@
+C:\Users\kabil\source\repos\ecommerce\ecommerce\bin\Release\ecommerce.exe.config
+C:\Users\kabil\source\repos\ecommerce\ecommerce\bin\Release\ecommerce.exe
+C:\Users\kabil\source\repos\ecommerce\ecommerce\bin\Release\ecommerce.pdb
+C:\Users\kabil\source\repos\ecommerce\ecommerce\obj\Release\ecommerce.ClientAdd.resources
+C:\Users\kabil\source\repos\ecommerce\ecommerce\obj\Release\ecommerce.Form1.resources
+C:\Users\kabil\source\repos\ecommerce\ecommerce\obj\Release\ecommerce.Form2.resources
+C:\Users\kabil\source\repos\ecommerce\ecommerce\obj\Release\ecommerce.productsList.resources
+C:\Users\kabil\source\repos\ecommerce\ecommerce\obj\Release\ecommerce.Properties.Resources.resources
+C:\Users\kabil\source\repos\ecommerce\ecommerce\obj\Release\ecommerce.removeProduct.resources
+C:\Users\kabil\source\repos\ecommerce\ecommerce\obj\Release\ecommerce.csproj.GenerateResource.cache
+C:\Users\kabil\source\repos\ecommerce\ecommerce\obj\Release\ecommerce.csproj.CoreCompileInputs.cache
+C:\Users\kabil\source\repos\ecommerce\ecommerce\obj\Release\ecommerce.exe
+C:\Users\kabil\source\repos\ecommerce\ecommerce\obj\Release\ecommerce.pdb

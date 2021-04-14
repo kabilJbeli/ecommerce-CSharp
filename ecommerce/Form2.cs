@@ -22,7 +22,10 @@ namespace ecommerce
             string code = this.productCode.Text;
             string name = this.productName.Text;
             string brand = this.productBrand.Text;
-
+            this.productBrand.Text = "";
+            this.productName.Text = "";
+            this.productCode.Text = "";
+            this.message.Text = "Product Was Added With Success";
             Product pd = new Product(code, brand, name);
             ProductDAO dpd = new ProductDAO();
             dpd.setProduct(pd);
@@ -40,6 +43,12 @@ namespace ecommerce
         private void label3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+            this.statusLabel.Text = "Add Product";
+            this.statusStrip1.Refresh();
         }
     }
 }

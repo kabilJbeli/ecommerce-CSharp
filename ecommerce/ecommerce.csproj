@@ -53,6 +53,12 @@
     <Compile Include="ClientAdd.Designer.cs">
       <DependentUpon>ClientAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="clientList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="clientList.Designer.cs">
+      <DependentUpon>clientList.cs</DependentUpon>
+    </Compile>
     <Compile Include="DAO\clientProductsDAO.cs" />
     <Compile Include="DAO\clientProductsInterface.cs" />
     <Compile Include="DAO\connection.cs" />
@@ -87,6 +93,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="removeClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="removeClient.Designer.cs">
+      <DependentUpon>removeClient.cs</DependentUpon>
+    </Compile>
     <Compile Include="removeProduct.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +107,9 @@
     </Compile>
     <EmbeddedResource Include="ClientAdd.resx">
       <DependentUpon>ClientAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="clientList.resx">
+      <DependentUpon>clientList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="E-Commerce.resx">
       <DependentUpon>E-Commerce.cs</DependentUpon>
@@ -114,6 +129,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="removeClient.resx">
+      <DependentUpon>removeClient.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="removeProduct.resx">
       <DependentUpon>removeProduct.cs</DependentUpon>
     </EmbeddedResource>

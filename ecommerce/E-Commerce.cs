@@ -97,5 +97,19 @@ namespace ecommerce
             rP.Show();
             this.Hide();
         }
+
+        private void clientListsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            clientList cL = new clientList();
+            cL.Show();
+            this.Hide();
+        }
+
+        private void deleteClientToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            removeClient rC = new removeClient();
+            rC.Show();
+            this.Hide();
+        }
     }
 }

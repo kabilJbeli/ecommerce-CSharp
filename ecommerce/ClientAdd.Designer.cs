@@ -65,6 +65,7 @@ namespace ecommerce
             this.clientName.Name = "clientName";
             this.clientName.Size = new System.Drawing.Size(534, 36);
             this.clientName.TabIndex = 3;
+            this.clientName.TextChanged += new System.EventHandler(this.clientName_TextChanged);
             // 
             // label2
             // 

@@ -1,5 +1,6 @@
-﻿using ecommerce.ecommerceClasses;
-using System;
+﻿using System;
+using ecommerce.ecommerceClasses;
+
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,28 +10,21 @@ using System.Windows.Forms;
 
 namespace ecommerce
 {
-    public partial class productsList : ecommerce.Form1
+    public partial class clientList : ecommerce.Form1
     {
-        public productsList()
+        public clientList()
         {
             InitializeComponent();
-
-
         }
 
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-         
-        }
-
-        private void productsList_Load(object sender, EventArgs e)
+        private void clientList_Load(object sender, EventArgs e)
         {
             DataTable table = GetTable();
             DataGridView dt = new DataGridView();
-           // dt.Location = new Point(50, 56);
+            // dt.Location = new Point(50, 56);
             dt.Visible = true;
             dt.DataSource = table;
-            dt.Anchor = (AnchorStyles.Left | AnchorStyles.Top );
+            dt.Anchor = (AnchorStyles.Left | AnchorStyles.Top);
             dt.DataSource = table;
             dt.Width = 0;
             dt.Height = 0;
@@ -42,31 +36,39 @@ namespace ecommerce
             dt.BorderStyle = BorderStyle.None;
             dt.Refresh();
             Controls.Add(dt);
-            this.statusLabel.Text = "Products List";
+            this.statusLabel.Text = "Clients List";
             this.statusStrip1.Refresh();
         }
+
 
         static DataTable GetTable()
         {
             // Step 2: here we create a DataTable.
             // ... We add 4 columns, each with a Type.
             DataTable table = new DataTable();
-            table.Columns.Add("Code", typeof(string));
-            table.Columns.Add("Brand", typeof(string));
+           table.Columns.Add("code", typeof(string));
             table.Columns.Add("Name", typeof(string));
+            table.Columns.Add("LastName", typeof(string));
+            table.Columns.Add("Email", typeof(string));
+          //  table.Columns.Add("Tel", typeof(int));
+            table.Columns.Add("Adress", typeof(string));
 
             // Step 3: here we add rows.
-            ProductDAO productsDAO = new ProductDAO();
-            List<Product> products = productsDAO.getProductsList();
-            products.ForEach(item => {
+            ClientDAO clientDAO = new ClientDAO();
+            List<Client> clients = clientDAO.getClientsList();
+            clients.ForEach( item => {
                 var row = table.NewRow();
-                row["Code"] = item.Code;
-                row["Brand"] = item.Brand;
-                row["Name"] = item.Name;
+                row["code"] = item.Code;
+               row["Name"] = item.Name;
+               row["LastName"] = item.LastName;
+               row["Email"] = item.Email;
+                row["Adress"] = item.Adress;
+
                 table.Rows.Add(row);
             });
-          
+
             return table;
         }
+
     }
 }

@@ -9,15 +9,16 @@ using System.Windows.Forms;
 
 namespace ecommerce
 {
-    public partial class removeProduct : ecommerce.Form1
+    public partial class removeClient : ecommerce.Form1
     {
         DataGridView dt;
-        public removeProduct()
+
+        public removeClient()
         {
             InitializeComponent();
         }
 
-        private void removeProduct_Load(object sender, EventArgs e)
+        private void removeClient_Load(object sender, EventArgs e)
         {
             DataTable table = GetTable();
             dt = new DataGridView();
@@ -27,7 +28,7 @@ namespace ecommerce
             dt.Width = 0;
             dt.Height = 0;
             dt.AutoSize = true;
-            dt.Dock= DockStyle.Fill;
+            dt.Dock = DockStyle.Fill;
             dt.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dt.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dt.BackgroundColor = SystemColors.ControlLightLight;
@@ -42,18 +43,19 @@ namespace ecommerce
             dt.CellContentClick += btnClickMe_CellContentClick;
             dt.Columns.Add(bcol);
             dt.Refresh();
-            this.statusLabel.Text = "Products List";
+            this.statusLabel.Text = "Remove Client";
             this.statusStrip1.Refresh();
         }
+
         private void btnClickMe_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 3)
+            if (e.ColumnIndex == 5)
             {
-                ProductDAO productDAO = new ProductDAO();
+                ClientDAO clientDAO = new ClientDAO();
                 var rowIndex = e.RowIndex;
                 //specify 0, if the Id is in the first Column else in place of 0 e.ColumnIndex
                 var id = dt.Rows[e.RowIndex].Cells[0].Value;
-                productDAO.removeProduct(id.ToString());
+                clientDAO.removeClient(id.ToString());
                 Console.WriteLine("Button Clicked");
                 DataTable table = GetTable();
                 dt.DataSource = table;
@@ -68,25 +70,28 @@ namespace ecommerce
             // Step 2: here we create a DataTable.
             // ... We add 4 columns, each with a Type.
             DataTable table = new DataTable();
-            table.Columns.Add("Code", typeof(string));
-            table.Columns.Add("Brand", typeof(string));
+            table.Columns.Add("code", typeof(string));
             table.Columns.Add("Name", typeof(string));
+            table.Columns.Add("LastName", typeof(string));
+            table.Columns.Add("Email", typeof(string));
+            //  table.Columns.Add("Tel", typeof(int));
+            table.Columns.Add("Adress", typeof(string));
+
             // Step 3: here we add rows.
-            ProductDAO productsDAO = new ProductDAO();
-            List<Product> products = productsDAO.getProductsList();
-            products.ForEach(item => {
+            ClientDAO clientDAO = new ClientDAO();
+            List<Client> clients = clientDAO.getClientsList();
+            clients.ForEach(item => {
                 var row = table.NewRow();
-                row["Code"] = item.Code;
-                row["Brand"] = item.Brand;
+                row["code"] = item.Code;
                 row["Name"] = item.Name;
+                row["LastName"] = item.LastName;
+                row["Email"] = item.Email;
+                row["Adress"] = item.Adress;
+
                 table.Rows.Add(row);
             });
 
             return table;
-        }
-       static void RemoveItem(Product item)
-        {
-
         }
     }
 }

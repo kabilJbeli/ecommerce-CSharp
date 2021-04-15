@@ -49,14 +49,19 @@ namespace ecommerce
             string clientName = this.clientName.Text;
             string clientLastName = this.clientLastName.Text;
             string email = this.clientEmail.Text;
-            int tel = int.Parse(this.clientTel.Text);
+            int tel = 5;//int.Parse(this.clientTel.Text);
             string adress = this.clientAdress.Text;
-            Client client = new Client(code, clientName, clientLastName,email,tel,adress);
+            Client client = new Client(code,clientName,clientLastName,email,tel,adress);
             ClientDAO clientDAO = new ClientDAO();
             clientDAO.setClient(client);
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void clientName_TextChanged(object sender, EventArgs e)
         {
 
         }

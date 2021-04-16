@@ -105,6 +105,7 @@
     <Compile Include="removeProduct.Designer.cs">
       <DependentUpon>removeProduct.cs</DependentUpon>
     </Compile>
+    <Compile Include="Validation\Validation.cs" />
     <EmbeddedResource Include="ClientAdd.resx">
       <DependentUpon>ClientAdd.cs</DependentUpon>
     </EmbeddedResource>
@@ -151,5 +152,6 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -6,7 +6,8 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-
+using System.Text.RegularExpressions;
+using ecommerce.Validation;
 namespace ecommerce
 {
     public partial class ClientAdd : ecommerce.Form1
@@ -49,7 +50,7 @@ namespace ecommerce
             string clientName = this.clientName.Text;
             string clientLastName = this.clientLastName.Text;
             string email = this.clientEmail.Text;
-            int tel = 5;//int.Parse(this.clientTel.Text);
+            int tel = int.Parse(this.clientTel.Text);
             string adress = this.clientAdress.Text;
             Client client = new Client(code,clientName,clientLastName,email,tel,adress);
             ClientDAO clientDAO = new ClientDAO();
@@ -64,6 +65,46 @@ namespace ecommerce
         private void clientName_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void clientTel_KeyDown(object sender, KeyEventArgs e)
+        {
+       
+
+        }
+
+        private void clientEmail_KeyDown(object sender, KeyEventArgs e)
+        {
+   
+        }
+
+        private void clientEmail_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string email = this.clientEmail.Text;
+            if (Validation.Validation.ValidateEmail(email).Success)
+            {
+                this.clientEmail.ForeColor = Color.Green;
+            }
+            else
+            {
+                this.clientEmail.ForeColor = Color.OrangeRed;
+
+            }
+        }
+
+        private void clientCode_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string code = this.clientCode.Text;
+
+            if (Validation.Validation.ValidateCode(code).Success)
+            {
+                this.clientCode.ForeColor = Color.Green;
+            }
+            else
+            {
+                this.clientCode.ForeColor = Color.OrangeRed;
+
+            }
         }
     }
 }

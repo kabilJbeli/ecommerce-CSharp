@@ -1,7 +1,6 @@
 C:\Users\kabil\source\repos\ecommerce\ecommerce\bin\Debug\ecommerce.exe.config
 C:\Users\kabil\source\repos\ecommerce\ecommerce\bin\Debug\ecommerce.exe
 C:\Users\kabil\source\repos\ecommerce\ecommerce\bin\Debug\ecommerce.pdb
-C:\Users\kabil\source\repos\ecommerce\ecommerce\obj\Debug\ecommerce.csprojAssemblyReference.cache
 C:\Users\kabil\source\repos\ecommerce\ecommerce\obj\Debug\ecommerce.Form1.resources
 C:\Users\kabil\source\repos\ecommerce\ecommerce\obj\Debug\ecommerce.Properties.Resources.resources
 C:\Users\kabil\source\repos\ecommerce\ecommerce\obj\Debug\ecommerce.csproj.GenerateResource.cache
@@ -14,3 +13,4 @@ C:\Users\kabil\source\repos\ecommerce\ecommerce\obj\Debug\ecommerce.productsList
 C:\Users\kabil\source\repos\ecommerce\ecommerce\obj\Debug\ecommerce.removeProduct.resources
 C:\Users\kabil\source\repos\ecommerce\ecommerce\obj\Debug\ecommerce.clientList.resources
 C:\Users\kabil\source\repos\ecommerce\ecommerce\obj\Debug\ecommerce.removeClient.resources
+C:\Users\kabil\source\repos\ecommerce\ecommerce\obj\Debug\ecommerce.csprojAssemblyReference.cache

@@ -60,7 +60,7 @@ namespace ecommerce
             // 
             // clientName
             // 
-            this.clientName.Location = new System.Drawing.Point(124, 3);
+            this.clientName.Location = new System.Drawing.Point(754, 3);
             this.clientName.Multiline = true;
             this.clientName.Name = "clientName";
             this.clientName.Size = new System.Drawing.Size(534, 36);
@@ -80,10 +80,10 @@ namespace ecommerce
             // 
             // clientLastName
             // 
-            this.clientLastName.Location = new System.Drawing.Point(754, 3);
+            this.clientLastName.Location = new System.Drawing.Point(124, 45);
             this.clientLastName.Multiline = true;
             this.clientLastName.Name = "clientLastName";
-            this.clientLastName.Size = new System.Drawing.Size(535, 36);
+            this.clientLastName.Size = new System.Drawing.Size(534, 36);
             this.clientLastName.TabIndex = 5;
             // 
             // label3
@@ -99,23 +99,26 @@ namespace ecommerce
             // 
             // clientEmail
             // 
-            this.clientEmail.Location = new System.Drawing.Point(124, 45);
+            this.clientEmail.Location = new System.Drawing.Point(754, 45);
             this.clientEmail.Multiline = true;
             this.clientEmail.Name = "clientEmail";
             this.clientEmail.Size = new System.Drawing.Size(534, 34);
             this.clientEmail.TabIndex = 7;
+            this.clientEmail.KeyDown += new System.Windows.Forms.KeyEventHandler(this.clientEmail_KeyDown);
+            this.clientEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.clientEmail_KeyPress);
             // 
             // clientTel
             // 
-            this.clientTel.Location = new System.Drawing.Point(754, 45);
+            this.clientTel.Location = new System.Drawing.Point(124, 87);
             this.clientTel.Multiline = true;
             this.clientTel.Name = "clientTel";
-            this.clientTel.Size = new System.Drawing.Size(535, 36);
+            this.clientTel.Size = new System.Drawing.Size(534, 36);
             this.clientTel.TabIndex = 8;
+            this.clientTel.KeyDown += new System.Windows.Forms.KeyEventHandler(this.clientTel_KeyDown);
             // 
             // clientAdress
             // 
-            this.clientAdress.Location = new System.Drawing.Point(124, 87);
+            this.clientAdress.Location = new System.Drawing.Point(754, 87);
             this.clientAdress.Multiline = true;
             this.clientAdress.Name = "clientAdress";
             this.clientAdress.Size = new System.Drawing.Size(534, 36);
@@ -144,11 +147,12 @@ namespace ecommerce
             // 
             // clientCode
             // 
-            this.clientCode.Location = new System.Drawing.Point(754, 87);
+            this.clientCode.Location = new System.Drawing.Point(124, 3);
             this.clientCode.Multiline = true;
             this.clientCode.Name = "clientCode";
-            this.clientCode.Size = new System.Drawing.Size(535, 36);
+            this.clientCode.Size = new System.Drawing.Size(534, 36);
             this.clientCode.TabIndex = 13;
+            this.clientCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.clientCode_KeyPress);
             // 
             // label6
             // 
@@ -182,17 +186,17 @@ namespace ecommerce
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.label6, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.addClient, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.clientName, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.clientCode, 3, 2);
             this.tableLayoutPanel1.Controls.Add(this.label5, 2, 2);
-            this.tableLayoutPanel1.Controls.Add(this.clientLastName, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.clientAdress, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.clientEmail, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.clientTel, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.label3, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.label1, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.clientEmail, 3, 1);
+            this.tableLayoutPanel1.Controls.Add(this.clientAdress, 3, 2);
+            this.tableLayoutPanel1.Controls.Add(this.clientLastName, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.clientTel, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.clientCode, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.clientName, 3, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 72);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;

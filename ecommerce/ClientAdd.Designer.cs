@@ -43,6 +43,7 @@ namespace ecommerce
             this.label6 = new System.Windows.Forms.Label();
             this.addClient = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.message = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -208,14 +209,27 @@ namespace ecommerce
             this.tableLayoutPanel1.TabIndex = 15;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
+            // message
+            // 
+            this.message.AutoSize = true;
+            this.message.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.message.ForeColor = System.Drawing.Color.Coral;
+            this.message.Location = new System.Drawing.Point(14, 306);
+            this.message.Name = "message";
+            this.message.Size = new System.Drawing.Size(0, 24);
+            this.message.TabIndex = 16;
+            this.message.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // ClientAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.ClientSize = new System.Drawing.Size(1316, 559);
+            this.Controls.Add(this.message);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "ClientAdd";
             this.Load += new System.EventHandler(this.ClientAdd_Load);
             this.Controls.SetChildIndex(this.tableLayoutPanel1, 0);
+            this.Controls.SetChildIndex(this.message, 0);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
@@ -239,5 +253,6 @@ namespace ecommerce
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button addClient;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Label message;
     }
 }

@@ -8,10 +8,10 @@ namespace ecommerce.ecommerceClasses
 {
     interface clientInterface
     {
-        void setClient(Client client);
+        Boolean setClient(Client client);
         Client GetClient(string code);
         void removeClient(string code);
-        void updateClient(Client client);
+        Boolean updateClient(Client client);
         List<Client> getClientsList();
 
     }

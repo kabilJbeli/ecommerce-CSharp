@@ -85,6 +85,12 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
+    <Compile Include="updateProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="updateProduct.Designer.cs">
+      <DependentUpon>updateProduct.cs</DependentUpon>
+    </Compile>
     <Compile Include="productsList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,24 @@
     </Compile>
     <Compile Include="removeProduct.Designer.cs">
       <DependentUpon>removeProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="updateClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="updateClient.Designer.cs">
+      <DependentUpon>updateClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateClientScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateClientScreen.Designer.cs">
+      <DependentUpon>UpdateClientScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="updateProductScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="updateProductScreen.Designer.cs">
+      <DependentUpon>updateProductScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Validation\Validation.cs" />
     <EmbeddedResource Include="ClientAdd.resx">
@@ -135,6 +159,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="removeProduct.resx">
       <DependentUpon>removeProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="updateClient.resx">
+      <DependentUpon>updateClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateClientScreen.resx">
+      <DependentUpon>UpdateClientScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="updateProduct.resx">
+      <DependentUpon>updateProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="updateProductScreen.resx">
+      <DependentUpon>updateProductScreen.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -46,15 +46,31 @@ namespace ecommerce
 
         private void addClient_Click(object sender, EventArgs e)
         {
-            string code = this.clientCode.Text;
-            string clientName = this.clientName.Text;
-            string clientLastName = this.clientLastName.Text;
-            string email = this.clientEmail.Text;
-            int tel = int.Parse(this.clientTel.Text);
-            string adress = this.clientAdress.Text;
-            Client client = new Client(code,clientName,clientLastName,email,tel,adress);
-            ClientDAO clientDAO = new ClientDAO();
-            clientDAO.setClient(client);
+            try
+            {
+                string code = this.clientCode.Text;
+                string clientName = this.clientName.Text;
+                string clientLastName = this.clientLastName.Text;
+                string email = this.clientEmail.Text;
+                int tel = int.Parse(this.clientTel.Text);
+                string adress = this.clientAdress.Text;
+                Client client = new Client(code, clientName, clientLastName, email, tel, adress);
+                ClientDAO clientDAO = new ClientDAO();
+                Boolean response = clientDAO.setClient(client);
+
+                if (response)
+                {
+                    this.message.Text = "Client Was Added With Success";
+                }
+                else
+                {
+                    this.message.Text = "An Error Has Occured While Adding The Client";
+
+                }
+            }catch(ClIENT_EXISTE_EXCEPTION exception)
+            {
+                Console.WriteLine(exception.Message);
+            }
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)

@@ -111,5 +111,19 @@ namespace ecommerce
             rC.Show();
             this.Hide();
         }
+
+        private void modifyClientToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            updateClient uC = new updateClient();
+            uC.Show();
+            this.Hide();
+        }
+
+        private void modifyProductToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            updateProduct uP = new updateProduct();
+            uP.Show();
+            this.Hide();
+        }
     }
 }

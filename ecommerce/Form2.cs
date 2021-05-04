@@ -18,17 +18,36 @@ namespace ecommerce
 
         private void addproduct(object sender, EventArgs e)
         {
-            Console.WriteLine("button clicked");
+            ProductDAO productDAO = new ProductDAO();
             string code = this.productCode.Text;
             string name = this.productName.Text;
             string brand = this.productBrand.Text;
-            this.productBrand.Text = "";
-            this.productName.Text = "";
-            this.productCode.Text = "";
-            this.message.Text = "Product Was Added With Success";
-            Product pd = new Product(code, brand, name);
-            ProductDAO dpd = new ProductDAO();
-            dpd.setProduct(pd);
+                Console.WriteLine("button clicked");
+                this.productBrand.Text = "";
+                this.productName.Text = "";
+                this.productCode.Text = "";
+            try
+            {
+                Product pd = new Product(code, brand, name);
+                Boolean response = productDAO.setProduct(pd);
+                if (response)
+                {
+                    this.message.Text = "Product Was Added With Success";
+                }
+                else
+                {
+                    this.message.Text = "An Error Has Occured While Adding the Product";
+                }
+                Point p = new Point();
+                p.X = 0;
+                this.message.PointToScreen(p);
+            }
+            catch (PRODUIT_EXISTE_EXCEPTION exception) {
+
+                Console.WriteLine(exception.Message);
+            }
+
+
         }
 
         private void productCode_TextChanged(object sender, EventArgs e)
@@ -49,6 +68,21 @@ namespace ecommerce
         {
             this.statusLabel.Text = "Add Product";
             this.statusStrip1.Refresh();
+        }
+
+        private void productCode_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string code = this.productCode.Text;
+
+            if (Validation.Validation.ValidateCode(code).Success)
+            {
+                this.productCode.ForeColor = Color.Green;
+            }
+            else
+            {
+                this.productCode.ForeColor = Color.OrangeRed;
+
+            }
         }
     }
 }

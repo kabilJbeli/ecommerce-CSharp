@@ -50,21 +50,28 @@ namespace ecommerce
         {
             // Step 2: here we create a DataTable.
             // ... We add 4 columns, each with a Type.
+
             DataTable table = new DataTable();
             table.Columns.Add("Code", typeof(string));
             table.Columns.Add("Brand", typeof(string));
             table.Columns.Add("Name", typeof(string));
-
-            // Step 3: here we add rows.
-            ProductDAO productsDAO = new ProductDAO();
-            List<Product> products = productsDAO.getProductsList();
-            products.ForEach(item => {
-                var row = table.NewRow();
-                row["Code"] = item.Code;
-                row["Brand"] = item.Brand;
-                row["Name"] = item.Name;
-                table.Rows.Add(row);
-            });
+            try
+            {
+                // Step 3: here we add rows.
+                ProductDAO productsDAO = new ProductDAO();
+                List<Product> products = productsDAO.getProductsList();
+                products.ForEach(item =>
+                {
+                    var row = table.NewRow();
+                    row["Code"] = item.Code;
+                    row["Brand"] = item.Brand;
+                    row["Name"] = item.Name;
+                    table.Rows.Add(row);
+                });
+            }catch(PAS_DE_PRODUITS_EXCEPTION exception)
+            {
+                Console.WriteLine(exception.Message);
+            }
           
             return table;
         }

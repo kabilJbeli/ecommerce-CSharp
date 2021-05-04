@@ -52,6 +52,7 @@ namespace ecommerce
             this.productCode.Size = new System.Drawing.Size(529, 40);
             this.productCode.TabIndex = 2;
             this.productCode.TextChanged += new System.EventHandler(this.productCode_TextChanged);
+            this.productCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.productCode_KeyPress);
             // 
             // productName
             // 
@@ -139,10 +140,11 @@ namespace ecommerce
             // message
             // 
             this.message.AutoSize = true;
-            this.message.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.message.Location = new System.Drawing.Point(544, 339);
+            this.message.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.message.ForeColor = System.Drawing.Color.Coral;
+            this.message.Location = new System.Drawing.Point(18, 277);
             this.message.Name = "message";
-            this.message.Size = new System.Drawing.Size(0, 36);
+            this.message.Size = new System.Drawing.Size(0, 24);
             this.message.TabIndex = 10;
             this.message.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 

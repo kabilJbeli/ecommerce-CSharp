@@ -116,10 +116,15 @@ namespace ecommerce.ecommerceClasses
 
             try
             {
-                string req = "insert into product(code,transactionDate) values(@code,@transactionDate)";
+                DateTime date = DateTime.UtcNow;
+                string req = "insert into transaction(code,transactionDate,productID,clientID) values(@code,@transactionDate,@productID,@clientID)";
                 SqlCommand cmd = new SqlCommand(req, conn);
                 cmd.Parameters.AddWithValue("@code", transaction.Code);
-                cmd.Parameters.AddWithValue("@transactionDate", transaction.TransactionDate);
+                cmd.Parameters.AddWithValue("@transactionDate", date);
+
+                cmd.Parameters.AddWithValue("@productID", transaction.Product.Code);
+                cmd.Parameters.AddWithValue("@clientID", transaction.Client.Code);
+
                 int rows = cmd.ExecuteNonQuery();
                 if (rows > 0)
                 {

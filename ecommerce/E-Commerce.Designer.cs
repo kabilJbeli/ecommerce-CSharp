@@ -85,14 +85,14 @@ namespace ecommerce
             // addProductToolStripMenuItem
             // 
             this.addProductToolStripMenuItem.Name = "addProductToolStripMenuItem";
-            this.addProductToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.addProductToolStripMenuItem.Size = new System.Drawing.Size(213, 26);
             this.addProductToolStripMenuItem.Text = "Add  New Product";
             this.addProductToolStripMenuItem.Click += new System.EventHandler(this.addProductToolStripMenuItem_Click);
             // 
             // productsListToolStripMenuItem
             // 
             this.productsListToolStripMenuItem.Name = "productsListToolStripMenuItem";
-            this.productsListToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.productsListToolStripMenuItem.Size = new System.Drawing.Size(213, 26);
             this.productsListToolStripMenuItem.Text = "Products List";
             this.productsListToolStripMenuItem.CheckedChanged += new System.EventHandler(this.gotoproductlist);
             this.productsListToolStripMenuItem.Click += new System.EventHandler(this.gotoproductlist);
@@ -100,14 +100,14 @@ namespace ecommerce
             // modifyProductToolStripMenuItem
             // 
             this.modifyProductToolStripMenuItem.Name = "modifyProductToolStripMenuItem";
-            this.modifyProductToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.modifyProductToolStripMenuItem.Size = new System.Drawing.Size(213, 26);
             this.modifyProductToolStripMenuItem.Text = "Modify Product";
             this.modifyProductToolStripMenuItem.Click += new System.EventHandler(this.modifyProductToolStripMenuItem_Click);
             // 
             // deleteProductToolStripMenuItem
             // 
             this.deleteProductToolStripMenuItem.Name = "deleteProductToolStripMenuItem";
-            this.deleteProductToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.deleteProductToolStripMenuItem.Size = new System.Drawing.Size(213, 26);
             this.deleteProductToolStripMenuItem.Text = "Delete Product";
             this.deleteProductToolStripMenuItem.Click += new System.EventHandler(this.deleteProduct);
             // 
@@ -166,12 +166,14 @@ namespace ecommerce
             this.createATransactionToolStripMenuItem.Name = "createATransactionToolStripMenuItem";
             this.createATransactionToolStripMenuItem.Size = new System.Drawing.Size(228, 26);
             this.createATransactionToolStripMenuItem.Text = "Create A Transaction";
+            this.createATransactionToolStripMenuItem.Click += new System.EventHandler(this.createATransactionToolStripMenuItem_Click);
             // 
             // transactionsToolStripMenuItem1
             // 
             this.transactionsToolStripMenuItem1.Name = "transactionsToolStripMenuItem1";
             this.transactionsToolStripMenuItem1.Size = new System.Drawing.Size(228, 26);
-            this.transactionsToolStripMenuItem1.Text = "Transactions";
+            this.transactionsToolStripMenuItem1.Text = "Transactions List";
+            this.transactionsToolStripMenuItem1.Click += new System.EventHandler(this.transactionsToolStripMenuItem1_Click);
             // 
             // modifyTransactionToolStripMenuItem
             // 
@@ -184,6 +186,7 @@ namespace ecommerce
             this.deleteTransactionToolStripMenuItem.Name = "deleteTransactionToolStripMenuItem";
             this.deleteTransactionToolStripMenuItem.Size = new System.Drawing.Size(228, 26);
             this.deleteTransactionToolStripMenuItem.Text = "Delete Transaction";
+            this.deleteTransactionToolStripMenuItem.Click += new System.EventHandler(this.deleteTransactionToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 

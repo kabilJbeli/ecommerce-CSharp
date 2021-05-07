@@ -18,3 +18,6 @@ C:\Users\kabil\source\repos\ecommerce\ecommerce\obj\Debug\ecommerce.updateClient
 C:\Users\kabil\source\repos\ecommerce\ecommerce\obj\Debug\ecommerce.UpdateClientScreen.resources
 C:\Users\kabil\source\repos\ecommerce\ecommerce\obj\Debug\ecommerce.updateProduct.resources
 C:\Users\kabil\source\repos\ecommerce\ecommerce\obj\Debug\ecommerce.updateProductScreen.resources
+C:\Users\kabil\source\repos\ecommerce\ecommerce\obj\Debug\ecommerce.addTransaction.resources
+C:\Users\kabil\source\repos\ecommerce\ecommerce\obj\Debug\ecommerce.transactionList.resources
+C:\Users\kabil\source\repos\ecommerce\ecommerce\obj\Debug\ecommerce.removeTransaction.resources

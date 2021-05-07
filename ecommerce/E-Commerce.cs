@@ -125,5 +125,27 @@ namespace ecommerce
             uP.Show();
             this.Hide();
         }
+
+        private void createATransactionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            addTransaction addTransaction = new addTransaction();
+            addTransaction.Show();
+            this.Hide();
+        }
+
+        private void transactionsToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            transactionList transactionList = new transactionList();
+            transactionList.Show();
+            this.Hide();
+
+        }
+
+        private void deleteTransactionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            removeTransaction rmTransaction = new removeTransaction();
+            rmTransaction.Show();
+            this.Hide();
+        }
     }
 }

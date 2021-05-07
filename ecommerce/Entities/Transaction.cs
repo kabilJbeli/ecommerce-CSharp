@@ -12,18 +12,25 @@ namespace ecommerce.ecommerceClasses
         private string code;
         private DateTime transactionDate;
 
+        private Product product;
+        private Client client;
+
         public Transaction()
         {
 
         }
-        public Transaction(string code, DateTime transactionDate)
+        public Transaction(string code, DateTime transactionDate, Product product, Client client)
         {
             this.code = code;
             this.transactionDate = transactionDate;
+            this.product = product;
+            this.client = client;
         }
 
         public string Code { get => code; set => code = value; }
         public DateTime TransactionDate { get => transactionDate; set => transactionDate = value; }
+        public Product Product { get => product; set => product = value; }
+        public Client Client { get => client; set => client = value; }
 
         public override bool Equals(object obj)
         {

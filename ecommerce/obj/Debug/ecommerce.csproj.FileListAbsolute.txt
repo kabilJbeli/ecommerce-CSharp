@@ -21,3 +21,4 @@ C:\Users\kabil\source\repos\ecommerce\ecommerce\obj\Debug\ecommerce.updateProduc
 C:\Users\kabil\source\repos\ecommerce\ecommerce\obj\Debug\ecommerce.addTransaction.resources
 C:\Users\kabil\source\repos\ecommerce\ecommerce\obj\Debug\ecommerce.transactionList.resources
 C:\Users\kabil\source\repos\ecommerce\ecommerce\obj\Debug\ecommerce.removeTransaction.resources
+C:\Users\kabil\source\repos\ecommerce\ecommerce\obj\Debug\ecommerce.updateTransaction.resources

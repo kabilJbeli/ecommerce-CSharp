@@ -76,8 +76,6 @@ namespace ecommerce
             table.Columns.Add("Transaction Date", typeof(string));
             table.Columns.Add("Client", typeof(string));
             table.Columns.Add("Product", typeof(string));
-            //  table.Columns.Add("Tel", typeof(int));
-
             // Step 3: here we add rows.
             TransactionDAO transactionDAO = new TransactionDAO();
             List<Transaction> transactions = transactionDAO.getTransactionsList();
@@ -85,9 +83,8 @@ namespace ecommerce
                 var row = table.NewRow();
                 row["code"] = item.Code;
                 row["Transaction Date"] = item.TransactionDate;
-                row["Client"] = item.Client;
-                row["Product"] = item.Product;
-
+                row["Client"] = item.Client.Name;
+                row["Product"] = item.Product.Name;
                 table.Rows.Add(row);
             });
 

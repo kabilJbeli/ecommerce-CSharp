@@ -21,7 +21,7 @@ namespace ecommerce.ecommerceClasses
             Transaction transaction = new Transaction();
             try
             {
-                string req = "select * from transaction where code=@code";
+                string req = "select * from transactions where code=@code";
                 SqlCommand cmd = new SqlCommand(req, conn);
                 cmd.Parameters.AddWithValue("@code", code);
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
@@ -52,9 +52,11 @@ namespace ecommerce.ecommerceClasses
 
             DataTable dt = new DataTable();
             List<Transaction> list = new List<Transaction>();
+            ClientDAO clientDAO = new ClientDAO();
+            ProductDAO productDAO = new ProductDAO();
             try
             {
-                string req = "select * from transaction";
+                string req = "select * from transactions";
                 SqlCommand cmd = new SqlCommand(req, conn);
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(dt);
@@ -64,6 +66,8 @@ namespace ecommerce.ecommerceClasses
                     Transaction transaction = new Transaction();
                     transaction.TransactionDate = row.Field<DateTime>("transactionDate");
                     transaction.Code = row.Field<string>("code");
+                    transaction.Client = clientDAO.GetClient(row.Field<string>("clientID"));
+                    transaction.Product = productDAO.GetProduct(row.Field<string>("productID"));
                     list.Add(transaction);
                 }
             }
@@ -85,7 +89,7 @@ namespace ecommerce.ecommerceClasses
 
             try
             {
-                string req = "DELETE FROM  transaction where code=@code";
+                string req = "DELETE FROM  transactions where code=@code";
                 SqlCommand cmd = new SqlCommand(req, conn);
                 cmd.Parameters.AddWithValue("@code", code);
                 int rows = cmd.ExecuteNonQuery();
@@ -117,7 +121,8 @@ namespace ecommerce.ecommerceClasses
             try
             {
                 DateTime date = DateTime.UtcNow;
-                string req = "insert into transaction(code,transactionDate,productID,clientID) values(@code,@transactionDate,@productID,@clientID)";
+
+                string req = "insert into transactions(code,transactionDate,clientID,productID) values(@code,@transactionDate,@clientID,@productID)";
                 SqlCommand cmd = new SqlCommand(req, conn);
                 cmd.Parameters.AddWithValue("@code", transaction.Code);
                 cmd.Parameters.AddWithValue("@transactionDate", date);
@@ -154,7 +159,7 @@ namespace ecommerce.ecommerceClasses
 
             try
             {
-                string req = "update transaction set transactionDate=@transactionDate where code=@code";
+                string req = "update transactions set transactionDate=@transactionDate where code=@code";
                 SqlCommand cmd = new SqlCommand(req, conn);
                 cmd.Parameters.AddWithValue("@code", transaction.Code);
                 cmd.Parameters.AddWithValue("@transactionDate", transaction.TransactionDate);

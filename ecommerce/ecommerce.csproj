@@ -147,6 +147,12 @@
     <Compile Include="updateProductScreen.Designer.cs">
       <DependentUpon>updateProductScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="updateTransaction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="updateTransaction.Designer.cs">
+      <DependentUpon>updateTransaction.cs</DependentUpon>
+    </Compile>
     <Compile Include="Validation\Validation.cs" />
     <EmbeddedResource Include="addTransaction.resx">
       <DependentUpon>addTransaction.cs</DependentUpon>
@@ -198,6 +204,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="updateProductScreen.resx">
       <DependentUpon>updateProductScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="updateTransaction.resx">
+      <DependentUpon>updateTransaction.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

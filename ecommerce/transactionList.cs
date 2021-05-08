@@ -48,11 +48,9 @@ namespace ecommerce
             // ... We add 4 columns, each with a Type.
             DataTable table = new DataTable();
             table.Columns.Add("code", typeof(string));
+            table.Columns.Add("Transaction Date", typeof(string));
             table.Columns.Add("Client Name", typeof(string));
             table.Columns.Add("Product Name", typeof(string));
-            table.Columns.Add("Transaction Date Time", typeof(string));
-            //  table.Columns.Add("Tel", typeof(int));
-            table.Columns.Add("Adress", typeof(string));
 
             // Step 3: here we add rows.
             TransactionDAO transactiontDAO = new TransactionDAO();
@@ -60,10 +58,9 @@ namespace ecommerce
             transactions.ForEach(item => {
                 var row = table.NewRow();
                 row["code"] = item.Code;
-                row["Client Name"] = item.Client;
-                row["Product Name"] = item.Product;
+                row["Client Name"] = item.Client.Name;
+                row["Product Name"] = item.Product.Name;
                 row["Transaction Date"] = item.TransactionDate;
-
                 table.Rows.Add(row);
             });
 

@@ -59,10 +59,9 @@ namespace ecommerce
                 //specify 0, if the Id is in the first Column else in place of 0 e.ColumnIndex
                 var id = dt.Rows[e.RowIndex].Cells[0].Value;
 
-                updateProductScreen updateproduct = new updateProductScreen();
-                updateProductScreen.code = id.ToString();
-                updateproduct.Show();
-
+                updateTransactionScreen updatetransaction = new updateTransactionScreen();
+                updateTransactionScreen.code = id.ToString();
+                updatetransaction.Show();
 
                 this.Hide();
                 Console.WriteLine("Button Clicked");
@@ -90,8 +89,8 @@ namespace ecommerce
                 var row = table.NewRow();
                 row["Code"] = item.Code;
                 row["Transaction Date"] = item.TransactionDate;
-                row["Client"] = item.Client;
-                row["Product"] = item.Product;
+                row["Client"] = item.Client.Name;
+                row["Product"] = item.Product.Name;
 
                 table.Rows.Add(row);
             });

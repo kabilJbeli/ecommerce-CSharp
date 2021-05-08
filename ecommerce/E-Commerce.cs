@@ -147,5 +147,12 @@ namespace ecommerce
             rmTransaction.Show();
             this.Hide();
         }
+
+        private void modifyTransactionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            updateTransaction UpdateTransaction = new updateTransaction();
+            UpdateTransaction.Show();
+            this.Hide();
+        }
     }
 }

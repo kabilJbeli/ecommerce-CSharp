@@ -180,6 +180,7 @@ namespace ecommerce
             this.modifyTransactionToolStripMenuItem.Name = "modifyTransactionToolStripMenuItem";
             this.modifyTransactionToolStripMenuItem.Size = new System.Drawing.Size(228, 26);
             this.modifyTransactionToolStripMenuItem.Text = "Modify Transaction";
+            this.modifyTransactionToolStripMenuItem.Click += new System.EventHandler(this.modifyTransactionToolStripMenuItem_Click);
             // 
             // deleteTransactionToolStripMenuItem
             // 

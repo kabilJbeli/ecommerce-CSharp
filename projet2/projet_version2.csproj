@@ -1,0 +1,256 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EFFDC254-B672-4A77-A4B2-2B7160F699BA}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ecommerce</RootNamespace>
+    <AssemblyName>ecommerce</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="addTransaction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addTransaction.Designer.cs">
+      <DependentUpon>addTransaction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClientAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientAdd.Designer.cs">
+      <DependentUpon>ClientAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="clientList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="clientList.Designer.cs">
+      <DependentUpon>clientList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DAO\clientProductsDAO.cs" />
+    <Compile Include="DAO\clientProductsInterface.cs" />
+    <Compile Include="DAO\connection.cs" />
+    <Compile Include="E-Commerce.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="E-Commerce.Designer.cs">
+      <DependentUpon>E-Commerce.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DAO\clientDAO.cs" />
+    <Compile Include="DAO\clientInterface.cs" />
+    <Compile Include="Entities\ClientProducts.cs" />
+    <Compile Include="Exceptions\exceptions.cs" />
+    <Compile Include="Entities\Client.cs" />
+    <Compile Include="Entities\Product.cs" />
+    <Compile Include="DAO\productDAO.cs" />
+    <Compile Include="DAO\productInterface.cs" />
+    <Compile Include="Entities\Transaction.cs" />
+    <Compile Include="DAO\transactionDAO.cs" />
+    <Compile Include="DAO\transactionInterface.cs" />
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="removeTransaction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="removeTransaction.Designer.cs">
+      <DependentUpon>removeTransaction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="supply.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="supply.Designer.cs">
+      <DependentUpon>supply.cs</DependentUpon>
+    </Compile>
+    <Compile Include="supplyList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="supplyList.Designer.cs">
+      <DependentUpon>supplyList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="transactionList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="transactionList.Designer.cs">
+      <DependentUpon>transactionList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="updateProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="updateProduct.Designer.cs">
+      <DependentUpon>updateProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="productsList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="productsList.Designer.cs">
+      <DependentUpon>productsList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="removeClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="removeClient.Designer.cs">
+      <DependentUpon>removeClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="removeProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="removeProduct.Designer.cs">
+      <DependentUpon>removeProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="updateClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="updateClient.Designer.cs">
+      <DependentUpon>updateClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateClientScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateClientScreen.Designer.cs">
+      <DependentUpon>UpdateClientScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="updateProductScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="updateProductScreen.Designer.cs">
+      <DependentUpon>updateProductScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="updateTransaction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="updateTransaction.Designer.cs">
+      <DependentUpon>updateTransaction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="updateTransactionScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="updateTransactionScreen.Designer.cs">
+      <DependentUpon>updateTransactionScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Validation\Validation.cs" />
+    <EmbeddedResource Include="addTransaction.resx">
+      <DependentUpon>addTransaction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientAdd.resx">
+      <DependentUpon>ClientAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="clientList.resx">
+      <DependentUpon>clientList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="E-Commerce.resx">
+      <DependentUpon>E-Commerce.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="productsList.resx">
+      <DependentUpon>productsList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="removeClient.resx">
+      <DependentUpon>removeClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="removeProduct.resx">
+      <DependentUpon>removeProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="removeTransaction.resx">
+      <DependentUpon>removeTransaction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="supply.resx">
+      <DependentUpon>supply.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="supplyList.resx">
+      <DependentUpon>supplyList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="transactionList.resx">
+      <DependentUpon>transactionList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="updateClient.resx">
+      <DependentUpon>updateClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateClientScreen.resx">
+      <DependentUpon>UpdateClientScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="updateProduct.resx">
+      <DependentUpon>updateProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="updateProductScreen.resx">
+      <DependentUpon>updateProductScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="updateTransaction.resx">
+      <DependentUpon>updateTransaction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="updateTransactionScreen.resx">
+      <DependentUpon>updateTransactionScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

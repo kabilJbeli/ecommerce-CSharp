@@ -40,6 +40,7 @@ namespace ecommerce
             this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.message = new System.Windows.Forms.Label();
+            this.errorLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,6 +62,8 @@ namespace ecommerce
             this.productName.Name = "productName";
             this.productName.Size = new System.Drawing.Size(529, 38);
             this.productName.TabIndex = 3;
+            this.productName.TextChanged += new System.EventHandler(this.productName_TextChanged);
+            this.productName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.productName_KeyPress);
             // 
             // productBrand
             // 
@@ -69,6 +72,7 @@ namespace ecommerce
             this.productBrand.Name = "productBrand";
             this.productBrand.Size = new System.Drawing.Size(529, 38);
             this.productBrand.TabIndex = 4;
+            this.productBrand.TextChanged += new System.EventHandler(this.productBrand_TextChanged);
             // 
             // addproductbtn
             // 
@@ -148,16 +152,26 @@ namespace ecommerce
             this.message.TabIndex = 10;
             this.message.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // errorLabel
+            // 
+            this.errorLabel.AutoSize = true;
+            this.errorLabel.Location = new System.Drawing.Point(128, 268);
+            this.errorLabel.Name = "errorLabel";
+            this.errorLabel.Size = new System.Drawing.Size(0, 17);
+            this.errorLabel.TabIndex = 11;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.ClientSize = new System.Drawing.Size(1316, 559);
+            this.Controls.Add(this.errorLabel);
             this.Controls.Add(this.message);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Form2";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.Controls.SetChildIndex(this.tableLayoutPanel1, 0);
             this.Controls.SetChildIndex(this.message, 0);
+            this.Controls.SetChildIndex(this.errorLabel, 0);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
@@ -177,5 +191,6 @@ namespace ecommerce
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label message;
+        private System.Windows.Forms.Label errorLabel;
     }
 }

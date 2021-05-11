@@ -33,7 +33,7 @@ namespace ecommerce.Validation
 
         public static Match ValidateNaming(string name)
         {
-            Regex regex = new Regex("^[a-zA-Z]+ [a-zA-Z]+$");
+            Regex regex = new Regex(@"^[a-zA-Z ]+$");
             Match match = regex.Match(name);
             return match;
         }

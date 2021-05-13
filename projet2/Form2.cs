@@ -29,7 +29,7 @@ namespace ecommerce
             this.productName.Text = "";
             this.productCode.Text = "";
             this.tvalabel.Text = "";
-            this.price.Text = ""
+            this.price.Text = "";
 
             try
             {
@@ -37,13 +37,18 @@ namespace ecommerce
                 pd.Tva = tva;
                 pd.PrixUnitaire = price;
                 Boolean response = productDAO.setProduct(pd);
+                this.message.Visible = true;
+                this.errorLabel.Visible = false;
+
                 if (response)
                 {
                     this.message.Text = "Product Was Added With Success";
+
                 }
                 else
                 {
                     this.message.Text = "An Error Has Occured While Adding the Product";
+                    throw new PRODUIT_EXISTE_EXCEPTION("A Product With the same ID Already Exist");
                 }
                 Point p = new Point();
                 p.X = 0;
@@ -62,9 +67,14 @@ namespace ecommerce
 
         public void checkBtnState()
         {
+            this.errorLabel.Visible = true;
+            this.message.Visible = false;
+
             if (!Validation.Validation.ValidateCode(this.productCode.Text).Success 
                 || !Validation.Validation.ValidateNaming(this.productName.Text).Success
                 || !Validation.Validation.ValidateNaming(this.productBrand.Text).Success
+                || !Validation.Validation.ValidatePrice(this.price.Text).Success
+                || !Validation.Validation.ValidateTva(this.Tva.Text).Success
                 )
             {
 
@@ -176,6 +186,49 @@ namespace ecommerce
         private void label4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Tva_TextChanged(object sender, EventArgs e)
+        {
+            string text = this.Tva.Text;
+
+            if (Validation.Validation.ValidateTva(text).Success)
+            {
+                this.Tva.ForeColor = Color.Green;
+                this.errorLabel.Text = "";
+
+            }
+            else
+            {
+                this.Tva.ForeColor = Color.OrangeRed;
+
+                this.errorLabel.Text = "Please write a valid TVA";
+                this.errorLabel.ForeColor = Color.OrangeRed;
+
+            }
+            this.checkBtnState();
+
+        }
+
+        private void price_TextChanged(object sender, EventArgs e)
+        {
+            string text = this.price.Text;
+
+            if (Validation.Validation.ValidatePrice(text).Success)
+            {
+                this.price.ForeColor = Color.Green;
+                this.errorLabel.Text = "";
+
+            }
+            else
+            {
+                this.price.ForeColor = Color.OrangeRed;
+
+                this.errorLabel.Text = "Please write a valid Price";
+                this.errorLabel.ForeColor = Color.OrangeRed;
+
+            }
+            this.checkBtnState();
         }
     }
 }

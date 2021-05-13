@@ -14,7 +14,7 @@ namespace ecommerce.ecommerceClasses
 
         private Product product;
         private Client client;
-
+        private int quantity;
         public Transaction()
         {
 
@@ -31,6 +31,7 @@ namespace ecommerce.ecommerceClasses
         public DateTime TransactionDate { get => transactionDate; set => transactionDate = value; }
         public Product Product { get => product; set => product = value; }
         public Client Client { get => client; set => client = value; }
+        public int Quantity { get => quantity; set => quantity = value; }
 
         public override bool Equals(object obj)
         {

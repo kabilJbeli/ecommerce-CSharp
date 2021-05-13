@@ -55,18 +55,30 @@ namespace ecommerce
 
             // Step 3: here we add rows.
             ClientDAO clientDAO = new ClientDAO();
+            try { 
             List<Client> clients = clientDAO.getClientsList();
-            clients.ForEach( item => {
-                var row = table.NewRow();
-                row["code"] = item.Code;
-               row["Name"] = item.Name;
-               row["LastName"] = item.LastName;
-               row["Email"] = item.Email;
-                row["Adress"] = item.Adress;
+            if (clients != null) {
+                clients.ForEach(item => {
+                    var row = table.NewRow();
+                    row["code"] = item.Code;
+                    row["Name"] = item.Name;
+                    row["LastName"] = item.LastName;
+                    row["Email"] = item.Email;
+                    row["Adress"] = item.Adress;
 
-                table.Rows.Add(row);
-            });
-
+                    table.Rows.Add(row);
+                });
+            } else
+            {
+                throw new exceptions("The Clients List Is Currently Empty");
+            }
+        }  catch (exceptions exception)
+            {
+                string title = "Exception";
+                string message = exception.Message;
+                MessageBox.Show(message, title);
+                Console.WriteLine(exception.Message);
+            }
             return table;
         }
 

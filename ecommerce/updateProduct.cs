@@ -39,7 +39,7 @@ namespace ecommerce
             Controls.Add(dt);
             DataGridViewButtonColumn bcol = new DataGridViewButtonColumn();
             bcol.HeaderText = "Action ";
-            bcol.Text = "Edit";
+            bcol.Text = "Update";
             bcol.Name = "btnClickMe";
             bcol.UseColumnTextForButtonValue = true;
             dt.CellContentClick += btnClickMe_CellContentClick;

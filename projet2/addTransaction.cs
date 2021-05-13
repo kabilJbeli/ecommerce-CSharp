@@ -23,7 +23,8 @@ namespace ecommerce
         }
         public void checkBtnState()
         {
-            if (!Validation.Validation.ValidateCode(this.transactionCode.Text).Success
+            if (!Validation.Validation.ValidateCode(this.transactionCode.Text).Success 
+                || !Validation.Validation.ValidateInteger(this.quantity.Text).Success
                 )
             {
 
@@ -39,14 +40,13 @@ namespace ecommerce
 
         private void productCode_TextChanged(object sender, EventArgs e)
         {
-            if (Validation.Validation.ValidateCode(this.transactionCode.Text).Success || this.product.SelectedIndex <= -1 || this.client.SelectedIndex <= -1)
+            if (Validation.Validation.ValidateCode(this.transactionCode.Text).Success)
             {
                 this.transactionCode.ForeColor = Color.Green;
             }
             else
             {
                 this.transactionCode.ForeColor = Color.OrangeRed;
-
             }
             this.checkBtnState();
         }
@@ -105,6 +105,20 @@ namespace ecommerce
 
         }
 
+        private void quantity_TextChanged(object sender, EventArgs e)
+        {
+            if (Validation.Validation.ValidateInteger(this.quantity.Text).Success)
+            {
+                this.quantity.ForeColor = Color.Green;
+            }
+            else
+            {
+                this.quantity.ForeColor = Color.OrangeRed;
+
+            }
+            this.checkBtnState();
+        }
+
         private void addproductbtn_Click(object sender, EventArgs e)
         {
             TransactionDAO transactionDAO = new TransactionDAO();
@@ -121,7 +135,19 @@ namespace ecommerce
             transaction.Client = client;
             transaction.Product = product;
             transaction.Code = this.transactionCode.Text;
-            transactionDAO.setTransaction(transaction);
+            transaction.Quantity = int.Parse(this.quantity.Text);
+            try
+            {if(product.Quantity < transaction.Quantity)
+                {
+                    throw new INSUFFICIENT_QUANTITY("There's not a susfficiant Quantity to accept your transaction");
+                }
+                transactionDAO.setTransaction(transaction);
+            }catch(INSUFFICIENT_QUANTITY exception)
+            {
+                 string title = "Exception";
+                string message = exception.Message;
+                MessageBox.Show(this, message, title, MessageBoxButtons.OK);
+            }
         }
     }
     class Item

@@ -32,6 +32,8 @@ namespace ecommerce
 
         public void checkBtnState()
         {
+            this.message.Visible = false;
+            this.errorLabel.Visible = true;
             if (!Validation.Validation.ValidateCode(this.productCode.Text).Success
                 || !Validation.Validation.ValidateNaming(this.productName.Text).Success
                 || !Validation.Validation.ValidateNaming(this.productBrand.Text).Success
@@ -57,6 +59,8 @@ namespace ecommerce
             Product product = new Product(code, productName, productBrand);
             ProductDAO productDao = new ProductDAO();
            Boolean response=  productDao.updateProduct(product);
+            this.message.Visible = true;
+            this.errorLabel.Visible = false;
             if (response)
             {
                 this.message.Text = "Product was successfully updated";

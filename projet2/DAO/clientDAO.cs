@@ -54,7 +54,7 @@ namespace ecommerce.ecommerceClasses
             conn.Open();
 
             DataTable dt = new DataTable();
-            List<Client> list = new List<Client>();
+            List<Client> list = null;
             try
             {
                 string req = "select * from client";
@@ -62,16 +62,20 @@ namespace ecommerce.ecommerceClasses
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(dt);
                 dt.AsEnumerable();
-                foreach( DataRow row in dt.AsEnumerable())
+                if (dt.Rows.Count != 0)
                 {
-                    Client cl = new Client();
-                    cl.Adress = row.Field<string>("adress");
-                    cl.Code = row.Field<string>("code");
-                    cl.Email = row.Field<string>("email");
-                    cl.LastName = row.Field<string>("lastName");
-                    cl.Name = row.Field<string>("name");
-                    cl.Tel = row.Field<int>("tel");
-                    list.Add(cl);
+                    list = new List<Client>();
+                    foreach (DataRow row in dt.AsEnumerable())
+                    {
+                        Client cl = new Client();
+                        cl.Adress = row.Field<string>("adress");
+                        cl.Code = row.Field<string>("code");
+                        cl.Email = row.Field<string>("email");
+                        cl.LastName = row.Field<string>("lastName");
+                        cl.Name = row.Field<string>("name");
+                        cl.Tel = row.Field<int>("tel");
+                        list.Add(cl);
+                    }
                 }
             }
             catch(Exception e)

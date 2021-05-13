@@ -37,6 +37,8 @@ namespace ecommerce
             this.label2 = new System.Windows.Forms.Label();
             this.product = new System.Windows.Forms.ComboBox();
             this.client = new System.Windows.Forms.ComboBox();
+            this.quantity = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,6 +49,8 @@ namespace ecommerce
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.label4, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.quantity, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.addproductbtn, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 1);
@@ -77,18 +81,19 @@ namespace ecommerce
             // addproductbtn
             // 
             this.addproductbtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.addproductbtn.Location = new System.Drawing.Point(129, 114);
+            this.addproductbtn.Location = new System.Drawing.Point(129, 116);
             this.addproductbtn.Name = "addproductbtn";
             this.addproductbtn.Size = new System.Drawing.Size(176, 36);
             this.addproductbtn.TabIndex = 5;
             this.addproductbtn.Text = "Update Transaction";
             this.addproductbtn.UseVisualStyleBackColor = true;
+            this.addproductbtn.Click += new System.EventHandler(this.addproductbtn_Click_1);
             // 
             // label3
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 61);
+            this.label3.Location = new System.Drawing.Point(3, 62);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(43, 17);
             this.label3.TabIndex = 8;
@@ -107,7 +112,7 @@ namespace ecommerce
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(674, 16);
+            this.label2.Location = new System.Drawing.Point(672, 16);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(57, 17);
             this.label2.TabIndex = 7;
@@ -118,9 +123,9 @@ namespace ecommerce
             this.product.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.product.FormattingEnabled = true;
             this.product.ItemHeight = 29;
-            this.product.Location = new System.Drawing.Point(737, 5);
+            this.product.Location = new System.Drawing.Point(739, 5);
             this.product.Name = "product";
-            this.product.Size = new System.Drawing.Size(539, 37);
+            this.product.Size = new System.Drawing.Size(537, 37);
             this.product.TabIndex = 9;
             // 
             // client
@@ -131,6 +136,25 @@ namespace ecommerce
             this.client.Name = "client";
             this.client.Size = new System.Drawing.Size(529, 37);
             this.client.TabIndex = 10;
+            // 
+            // quantity
+            // 
+            this.quantity.Location = new System.Drawing.Point(739, 51);
+            this.quantity.MinimumSize = new System.Drawing.Size(4, 40);
+            this.quantity.Multiline = true;
+            this.quantity.Name = "quantity";
+            this.quantity.Size = new System.Drawing.Size(537, 40);
+            this.quantity.TabIndex = 12;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(672, 62);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(61, 17);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Quantity";
             // 
             // updateTransactionScreen
             // 
@@ -157,5 +181,7 @@ namespace ecommerce
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox product;
         private System.Windows.Forms.ComboBox client;
+        private System.Windows.Forms.TextBox quantity;
+        private System.Windows.Forms.Label label4;
     }
 }

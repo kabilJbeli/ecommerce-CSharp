@@ -32,6 +32,8 @@ namespace ecommerce.ecommerceClasses
                 prod.Brand = row.Field<string>("brand");
                 prod.Code = row.Field<string>("code");
                 prod.Name = row.Field<string>("name");
+                prod.PrixUnitaire = decimal.Parse(row.Field<string>("prixUnitaire"));
+                prod.Tva = decimal.Parse(row.Field<string>("tva"));
             }
             catch (Exception e){}
             finally
@@ -209,11 +211,13 @@ namespace ecommerce.ecommerceClasses
            Boolean productUpdated = false;
             try
             {
-                string req = "update product set brand=@brand,name=@name where code=@code";
+                string req = "update product set brand=@brand,name=@name,tva=@tva,prixUnitaire=@prixUnitaire  where code=@code";
                 SqlCommand cmd = new SqlCommand(req, conn);
                 cmd.Parameters.AddWithValue("@code", product.Code);
                 cmd.Parameters.AddWithValue("@name", product.Name);
                 cmd.Parameters.AddWithValue("@brand", product.Brand);
+                cmd.Parameters.AddWithValue("@tva", product.Tva);
+                cmd.Parameters.AddWithValue("@prixUnitaire", product.PrixUnitaire);
                 int rows = cmd.ExecuteNonQuery();
                 if (rows > 0)
                 {

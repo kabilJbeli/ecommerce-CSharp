@@ -219,7 +219,7 @@ namespace ecommerce
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "E-commerce";
+            this.Text = "Projet Version 1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Click += new System.EventHandler(this.destroyForm);
             this.menuStrip1.ResumeLayout(false);

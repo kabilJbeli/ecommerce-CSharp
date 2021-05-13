@@ -46,7 +46,8 @@ namespace ecommerce
             Client client = new Client(code, clientName, clientLastName, email, tel, adress);
             ClientDAO clientDAO = new ClientDAO();
             Boolean response = clientDAO.updateClient(client);
-
+            this.message.Visible = true;
+            this.errorLabel.Visible = false;
             if (response)
             {
                 this.message.Text = "Client Was Updated Successfully";
@@ -64,8 +65,10 @@ namespace ecommerce
 
         public void checkBtnState()
         {
+            this.message.Visible = false;
+            this.errorLabel.Visible = true;
 
-            if(!Validation.Validation.ValidateTel(this.clientTel.Text).Success
+            if (!Validation.Validation.ValidateTel(this.clientTel.Text).Success
                 || !Validation.Validation.ValidateCode(this.clientCode.Text).Success
                 || !Validation.Validation.ValidateEmail(this.clientEmail.Text).Success
                 || !Validation.Validation.ValidateNaming(this.clientName.Text).Success

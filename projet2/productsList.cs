@@ -60,7 +60,10 @@ namespace ecommerce
                 // Step 3: here we add rows.
                 ProductDAO productsDAO = new ProductDAO();
                 List<Product> products = productsDAO.getProductsList();
-                products.ForEach(item =>
+                if (products != null)
+                {
+
+                    products.ForEach(item =>
                 {
                     var row = table.NewRow();
                     row["Code"] = item.Code;
@@ -68,11 +71,18 @@ namespace ecommerce
                     row["Name"] = item.Name;
                     table.Rows.Add(row);
                 });
-            }catch(PAS_DE_PRODUITS_EXCEPTION exception)
+                }
+                else
+                {
+                    throw new PAS_DE_PRODUITS_EXCEPTION("The products list is empty");
+                }
+            }
+            catch(PAS_DE_PRODUITS_EXCEPTION exception)
             {
                 Console.WriteLine(exception.Message);
+                MessageBox.Show(exception.Message, "Exception", MessageBoxButtons.OK);
             }
-          
+
             return table;
         }
     }

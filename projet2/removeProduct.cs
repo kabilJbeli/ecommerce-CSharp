@@ -71,17 +71,31 @@ namespace ecommerce
             table.Columns.Add("Code", typeof(string));
             table.Columns.Add("Brand", typeof(string));
             table.Columns.Add("Name", typeof(string));
-            // Step 3: here we add rows.
-            ProductDAO productsDAO = new ProductDAO();
-            List<Product> products = productsDAO.getProductsList();
-            products.ForEach(item => {
-                var row = table.NewRow();
-                row["Code"] = item.Code;
-                row["Brand"] = item.Brand;
-                row["Name"] = item.Name;
-                table.Rows.Add(row);
-            });
+            // Step 3: here we add rows.$
+            try
+            {
+                ProductDAO productsDAO = new ProductDAO();
+                List<Product> products = productsDAO.getProductsList();
+                if (products != null)
+                {
+                    products.ForEach(item =>
+                    {
+                        var row = table.NewRow();
+                        row["Code"] = item.Code;
+                        row["Brand"] = item.Brand;
+                        row["Name"] = item.Name;
+                        table.Rows.Add(row);
+                    });
+                }
+                else
+                {
+                    throw new PAS_DE_PRODUITS_EXCEPTION("The products list is empty");
+                }
+            }catch(PAS_DE_PRODUITS_EXCEPTION exception)
+            {
+                MessageBox.Show(exception.Message, "Exception", MessageBoxButtons.OK);
 
+            }
             return table;
         }
        static void RemoveItem(Product item)

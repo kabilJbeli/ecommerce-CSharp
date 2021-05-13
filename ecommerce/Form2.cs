@@ -30,6 +30,8 @@ namespace ecommerce
             {
                 Product pd = new Product(code, brand, name);
                 Boolean response = productDAO.setProduct(pd);
+                this.message.Visible = true;
+                this.errorLabel.Visible = false;
                 if (response)
                 {
                     this.message.Text = "Product Was Added With Success";
@@ -55,6 +57,8 @@ namespace ecommerce
 
         public void checkBtnState()
         {
+            this.message.Visible = false;
+            this.errorLabel.Visible = true;
             if (!Validation.Validation.ValidateCode(this.productCode.Text).Success 
                 || !Validation.Validation.ValidateNaming(this.productName.Text).Success
                 || !Validation.Validation.ValidateNaming(this.productBrand.Text).Success

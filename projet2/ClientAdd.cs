@@ -19,6 +19,8 @@ namespace ecommerce
 
         public void checkBtnState()
         {
+            this.message.Visible = false;
+            this.errorLabel.Visible = true;
             if (!Validation.Validation.ValidateTel(this.clientTel.Text).Success ||
                 !Validation.Validation.ValidateCode(this.clientCode.Text).Success ||
                 !Validation.Validation.ValidateEmail(this.clientEmail.Text).Success ||
@@ -77,7 +79,8 @@ namespace ecommerce
                 Client client = new Client(code, clientName, clientLastName, email, tel, adress);
                 ClientDAO clientDAO = new ClientDAO();
                 Boolean response = clientDAO.setClient(client);
-
+                this.message.Visible = true;
+                this.errorLabel.Visible = false;
                 if (response)
                 {
                     this.message.Text = "Client Was Added With Success";
@@ -91,7 +94,7 @@ namespace ecommerce
             {
                 string title = "Exception";
                 string message = exception.Message;
-                MessageBox.Show(message, title);                
+                MessageBox.Show(this, message, title, MessageBoxButtons.OK);
                 Console.WriteLine(exception.Message);
             }
         }

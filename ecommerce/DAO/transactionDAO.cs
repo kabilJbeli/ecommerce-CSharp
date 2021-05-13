@@ -91,6 +91,60 @@ namespace ecommerce.ecommerceClasses
             return list;
         }
 
+
+
+
+
+
+        public List<Transaction> getTransactionsListByClientID(int clientid)
+        {
+
+            SqlConnection conn = connection.GetConnection();
+            conn.Open();
+
+            DataTable dt = new DataTable();
+            List<Transaction> list = new List<Transaction>();
+            ClientDAO clientDAO = new ClientDAO();
+            ProductDAO productDAO = new ProductDAO();
+            try
+            {
+                string req = "select * from transactions where clientID=@clientid";
+                SqlCommand cmd = new SqlCommand(req, conn);
+                cmd.Parameters.AddWithValue("@clientid", clientid);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+
+                adapter.Fill(dt);
+                dt.AsEnumerable();
+                if (dt.Rows.Count != 0)
+                {
+                    foreach (DataRow row in dt.AsEnumerable())
+                    {
+                        Transaction transaction = new Transaction();
+                        transaction.TransactionDate = row.Field<DateTime>("transactionDate");
+                        transaction.Code = row.Field<string>("code");
+                        transaction.Client = clientDAO.GetClient(row.Field<string>("clientID"));
+                        transaction.Product = productDAO.GetProduct(row.Field<string>("productID"));
+                        list.Add(transaction);
+                    }
+                }
+                else
+                {
+                    throw (new PAS_DE_TRANSACTION_EXCEPTION("The Transactions List Is Currently Empty"));
+                }
+            }
+            catch (Exception e)
+            {
+
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return list;
+        }
+
+
+
         public void removeTransaction(string code)
         {
             SqlConnection conn = connection.GetConnection();

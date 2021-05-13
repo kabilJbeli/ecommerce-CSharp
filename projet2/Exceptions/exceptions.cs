@@ -34,9 +34,23 @@ namespace ecommerce.ecommerceClasses
         }
     }
 
-  
+    class INSUFFICIENT_QUANTITY : Exception
+    {
+        public INSUFFICIENT_QUANTITY(string message) : base(message)
+        {
+        }
+    }
+
+    class EMPTY_TRANSACTIONS_LIST : Exception
+    {
+        public EMPTY_TRANSACTIONS_LIST(string message) : base(message)
+        {
+        }
+    }
     class exceptions : Exception
     {
-
+        public exceptions(string message) : base(message)
+        {
+        }
     }
 }

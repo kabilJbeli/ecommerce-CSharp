@@ -16,9 +16,15 @@ namespace ecommerce.Validation
             return match;
         }
 
+        public static Match ValidatePrice(string code)
+        {
+            Regex regex = new Regex("^[0-9]+,[0-9]+");
+            Match match = regex.Match(code);
+            return match;
+        }
         public static Match ValidateTva(string code)
         {
-            Regex regex = new Regex("");
+            Regex regex = new Regex("^[0-1],[0-9]+|^[0-1]{1}");
             Match match = regex.Match(code);
             return match;
         }
@@ -42,6 +48,13 @@ namespace ecommerce.Validation
         {
             Regex regex = new Regex(@"^[a-zA-Z ]+$");
             Match match = regex.Match(name);
+            return match;
+        }
+
+        public static Match ValidateInteger(string code)
+        {
+            Regex regex = new Regex("^[0-9]+$");
+            Match match = regex.Match(code);
             return match;
         }
 

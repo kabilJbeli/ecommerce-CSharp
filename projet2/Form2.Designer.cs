@@ -82,7 +82,7 @@ namespace ecommerce
             // addproductbtn
             // 
             this.addproductbtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.addproductbtn.Location = new System.Drawing.Point(747, 115);
+            this.addproductbtn.Location = new System.Drawing.Point(747, 96);
             this.addproductbtn.Name = "addproductbtn";
             this.addproductbtn.Size = new System.Drawing.Size(139, 36);
             this.addproductbtn.TabIndex = 5;
@@ -147,7 +147,7 @@ namespace ecommerce
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1281, 179);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1281, 141);
             this.tableLayoutPanel1.TabIndex = 9;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
@@ -158,6 +158,7 @@ namespace ecommerce
             this.price.Name = "price";
             this.price.Size = new System.Drawing.Size(529, 38);
             this.price.TabIndex = 9;
+            this.price.TextChanged += new System.EventHandler(this.price_TextChanged);
             // 
             // label4
             // 
@@ -173,18 +174,18 @@ namespace ecommerce
             // 
             // Tva
             // 
-            this.Tva.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.Tva.Location = new System.Drawing.Point(108, 112);
+            this.Tva.Location = new System.Drawing.Point(108, 95);
             this.Tva.Multiline = true;
             this.Tva.Name = "Tva";
-            this.Tva.Size = new System.Drawing.Size(529, 41);
+            this.Tva.Size = new System.Drawing.Size(529, 38);
             this.Tva.TabIndex = 11;
+            this.Tva.TextChanged += new System.EventHandler(this.Tva_TextChanged);
             // 
             // tvalabel
             // 
             this.tvalabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.tvalabel.AutoSize = true;
-            this.tvalabel.Location = new System.Drawing.Point(3, 124);
+            this.tvalabel.Location = new System.Drawing.Point(3, 105);
             this.tvalabel.Name = "tvalabel";
             this.tvalabel.Size = new System.Drawing.Size(32, 17);
             this.tvalabel.TabIndex = 12;

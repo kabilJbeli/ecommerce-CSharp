@@ -27,14 +27,21 @@ namespace ecommerce
             this.productCode.Text = code;
             this.productName.Text = product.Name;
             this.productBrand.Text = product.Brand;
+            this.price.Text = product.PrixUnitaire.ToString();
+            this.Tva.Text = product.Tva.ToString();
+
             this.checkBtnState();
         }
 
         public void checkBtnState()
         {
+            this.message.Visible = false;
+            this.errorLabel.Visible = true;
             if (!Validation.Validation.ValidateCode(this.productCode.Text).Success
                 || !Validation.Validation.ValidateNaming(this.productName.Text).Success
                 || !Validation.Validation.ValidateNaming(this.productBrand.Text).Success
+                || !Validation.Validation.ValidatePrice(this.price.Text).Success
+                || !Validation.Validation.ValidateTva(this.Tva.Text).Success
                 )
             {
 
@@ -48,15 +55,28 @@ namespace ecommerce
 
         }
 
-
         private void addproductbtn_Click(object sender, EventArgs e)
         {
             string code = this.productCode.Text;
             string productName = this.productName.Text;
             string productBrand = this.productBrand.Text;
+
+            decimal price = decimal.Parse(this.price.Text);
+            decimal tva = decimal.Parse(this.Tva.Text);
+
+            this.productBrand.Text = "";
+            this.productName.Text = "";
+            this.productCode.Text = "";
+            this.tvalabel.Text = "";
+            this.price.Text = "";
+
             Product product = new Product(code, productName, productBrand);
+            product.PrixUnitaire = price;
+            product.Tva = tva;
             ProductDAO productDao = new ProductDAO();
-           Boolean response=  productDao.updateProduct(product);
+            this.message.Visible = true;
+            this.errorLabel.Visible = false;
+            Boolean response=  productDao.updateProduct(product);
             if (response)
             {
                 this.message.Text = "Product was successfully updated";
@@ -123,6 +143,49 @@ namespace ecommerce
             {
                 this.productCode.ForeColor = Color.OrangeRed;
                 this.errorLabel.Text = "Please write a valid code";
+                this.errorLabel.ForeColor = Color.OrangeRed;
+
+            }
+            this.checkBtnState();
+        }
+
+        private void price_TextChanged(object sender, EventArgs e)
+        {
+            string text = this.price.Text;
+
+            if (Validation.Validation.ValidatePrice(text).Success)
+            {
+                this.price.ForeColor = Color.Green;
+                this.errorLabel.Text = "";
+
+            }
+            else
+            {
+                this.price.ForeColor = Color.OrangeRed;
+
+                this.errorLabel.Text = "Please write a valid Price";
+                this.errorLabel.ForeColor = Color.OrangeRed;
+
+            }
+            this.checkBtnState();
+
+        }
+
+        private void Tva_TextChanged(object sender, EventArgs e)
+        {
+            string text = this.Tva.Text;
+
+            if (Validation.Validation.ValidateTva(text).Success)
+            {
+                this.Tva.ForeColor = Color.Green;
+                this.errorLabel.Text = "";
+
+            }
+            else
+            {
+                this.Tva.ForeColor = Color.OrangeRed;
+
+                this.errorLabel.Text = "Please write a valid TVA";
                 this.errorLabel.ForeColor = Color.OrangeRed;
 
             }

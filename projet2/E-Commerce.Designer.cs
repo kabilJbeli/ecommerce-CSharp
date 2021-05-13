@@ -40,6 +40,7 @@ namespace ecommerce
             this.productsListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modifyProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.supplyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addClientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientListsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,12 +51,11 @@ namespace ecommerce
             this.transactionsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.modifyTransactionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteTransactionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.supplyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dashboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.répartitionDeChiffreDaffaireParClientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.répartitionDeChiffreDaffaireParProduitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -91,14 +91,14 @@ namespace ecommerce
             // addProductToolStripMenuItem
             // 
             this.addProductToolStripMenuItem.Name = "addProductToolStripMenuItem";
-            this.addProductToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.addProductToolStripMenuItem.Size = new System.Drawing.Size(213, 26);
             this.addProductToolStripMenuItem.Text = "Add  New Product";
             this.addProductToolStripMenuItem.Click += new System.EventHandler(this.addProductToolStripMenuItem_Click);
             // 
             // productsListToolStripMenuItem
             // 
             this.productsListToolStripMenuItem.Name = "productsListToolStripMenuItem";
-            this.productsListToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.productsListToolStripMenuItem.Size = new System.Drawing.Size(213, 26);
             this.productsListToolStripMenuItem.Text = "Products List";
             this.productsListToolStripMenuItem.CheckedChanged += new System.EventHandler(this.gotoproductlist);
             this.productsListToolStripMenuItem.Click += new System.EventHandler(this.gotoproductlist);
@@ -106,16 +106,23 @@ namespace ecommerce
             // modifyProductToolStripMenuItem
             // 
             this.modifyProductToolStripMenuItem.Name = "modifyProductToolStripMenuItem";
-            this.modifyProductToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.modifyProductToolStripMenuItem.Size = new System.Drawing.Size(213, 26);
             this.modifyProductToolStripMenuItem.Text = "Modify Product";
             this.modifyProductToolStripMenuItem.Click += new System.EventHandler(this.modifyProductToolStripMenuItem_Click);
             // 
             // deleteProductToolStripMenuItem
             // 
             this.deleteProductToolStripMenuItem.Name = "deleteProductToolStripMenuItem";
-            this.deleteProductToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.deleteProductToolStripMenuItem.Size = new System.Drawing.Size(213, 26);
             this.deleteProductToolStripMenuItem.Text = "Delete Product";
             this.deleteProductToolStripMenuItem.Click += new System.EventHandler(this.deleteProduct);
+            // 
+            // supplyToolStripMenuItem
+            // 
+            this.supplyToolStripMenuItem.Name = "supplyToolStripMenuItem";
+            this.supplyToolStripMenuItem.Size = new System.Drawing.Size(213, 26);
+            this.supplyToolStripMenuItem.Text = "Supply";
+            this.supplyToolStripMenuItem.Click += new System.EventHandler(this.supplyToolStripMenuItem_Click);
             // 
             // clientsToolStripMenuItem
             // 
@@ -195,33 +202,6 @@ namespace ecommerce
             this.deleteTransactionToolStripMenuItem.Text = "Delete Transaction";
             this.deleteTransactionToolStripMenuItem.Click += new System.EventHandler(this.deleteTransactionToolStripMenuItem_Click);
             // 
-            // statusStrip1
-            // 
-            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(1000, 20);
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.statusLabel});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 533);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.ManagerRenderMode;
-            this.statusStrip1.Size = new System.Drawing.Size(1316, 26);
-            this.statusStrip1.TabIndex = 1;
-            this.statusStrip1.Text = "statusStrip1";
-            this.statusStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.statusStrip1_ItemClicked_1);
-            // 
-            // statusLabel
-            // 
-            this.statusLabel.Name = "statusLabel";
-            this.statusLabel.Size = new System.Drawing.Size(50, 20);
-            this.statusLabel.Text = "Home";
-            this.statusLabel.Click += new System.EventHandler(this.toolStripStatusLabel1_Click);
-            // 
-            // supplyToolStripMenuItem
-            // 
-            this.supplyToolStripMenuItem.Name = "supplyToolStripMenuItem";
-            this.supplyToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.supplyToolStripMenuItem.Text = "Supply";
-            this.supplyToolStripMenuItem.Click += new System.EventHandler(this.supplyToolStripMenuItem_Click);
-            // 
             // dashboardToolStripMenuItem
             // 
             this.dashboardToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -243,6 +223,26 @@ namespace ecommerce
             this.répartitionDeChiffreDaffaireParProduitToolStripMenuItem.Size = new System.Drawing.Size(371, 26);
             this.répartitionDeChiffreDaffaireParProduitToolStripMenuItem.Text = "Répartition de chiffre d’affaire par produit";
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(1000, 20);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.statusLabel});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 533);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.ManagerRenderMode;
+            this.statusStrip1.Size = new System.Drawing.Size(1316, 26);
+            this.statusStrip1.TabIndex = 1;
+            this.statusStrip1.Text = "statusStrip1";
+            this.statusStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.statusStrip1_ItemClicked_1);
+            // 
+            // statusLabel
+            // 
+            this.statusLabel.Name = "statusLabel";
+            this.statusLabel.Size = new System.Drawing.Size(50, 20);
+            this.statusLabel.Text = "Home";
+            this.statusLabel.Click += new System.EventHandler(this.toolStripStatusLabel1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -253,7 +253,7 @@ namespace ecommerce
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "(";
+            this.Text = "Projet version 2";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Click += new System.EventHandler(this.destroyForm);
             this.menuStrip1.ResumeLayout(false);

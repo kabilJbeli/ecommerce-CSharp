@@ -9,19 +9,19 @@ using System.Windows.Forms;
 
 namespace ecommerce
 {
-    public partial class updateProduct : ecommerce.Form1
+    public partial class productRepartitionList : ecommerce.Form1
     {
         DataGridView dt;
 
-        public updateProduct()
+        public productRepartitionList()
         {
             InitializeComponent();
         }
 
-
-
-        private void updateProduct_Load(object sender, EventArgs e)
+        private void productRepartitionList_Load(object sender, EventArgs e)
         {
+            this.statusLabel.Text = "Product Repartition List";
+            this.statusStrip1.Refresh();
             DataTable table = GetTable();
             dt = new DataGridView();
             dt.Location = new Point(30, 26);
@@ -39,34 +39,34 @@ namespace ecommerce
             Controls.Add(dt);
             DataGridViewButtonColumn bcol = new DataGridViewButtonColumn();
             bcol.HeaderText = "Action ";
-            bcol.Text = "Update";
+            bcol.Text = "Consult Product Repartition";
             bcol.Name = "btnClickMe";
             bcol.UseColumnTextForButtonValue = true;
             dt.CellContentClick += btnClickMe_CellContentClick;
             dt.Columns.Add(bcol);
             dt.Refresh();
-            this.statusLabel.Text = "Products List";
-            this.statusStrip1.Refresh();
         }
+
 
         private void btnClickMe_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == 3)
             {
-                ProductDAO productDAO = new ProductDAO();
+                ClientDAO clientDAO = new ClientDAO();
                 var rowIndex = e.RowIndex;
                 //specify 0, if the Id is in the first Column else in place of 0 e.ColumnIndex
                 var id = dt.Rows[e.RowIndex].Cells[0].Value;
 
-                updateProductScreen updateproduct = new updateProductScreen();
-                updateProductScreen.code = id.ToString();
-                updateproduct.Show();
+                selectedProductRepartition selectedProduct = new selectedProductRepartition();
+                selectedProduct.Code = id.ToString();
+                selectedProduct.Show();
                 this.Hide();
                 Console.WriteLine("Button Clicked");
                 DataTable table = GetTable();
                 dt.DataSource = table;
                 dt.CellContentClick += btnClickMe_CellContentClick;
                 this.dt.Refresh();
+                Controls.Add(dt);
 
             }
         }
@@ -79,37 +79,36 @@ namespace ecommerce
             table.Columns.Add("Brand", typeof(string));
             table.Columns.Add("Name", typeof(string));
             // Step 3: here we add rows.
-            ProductDAO productsDAO = new ProductDAO();
-            try { 
-            List<Product> products = productsDAO.getProductsList();
-            if (products != null)
+            try
             {
-                products.ForEach(item =>
+                ProductDAO productsDAO = new ProductDAO();
+                List<Product> products = productsDAO.getProductsList();
+                if (products != null)
                 {
-                    var row = table.NewRow();
-                    row["Code"] = item.Code;
-                    row["Brand"] = item.Brand;
-                    row["Name"] = item.Name;
-                    table.Rows.Add(row);
-                });
-
+                    products.ForEach(item =>
+                    {
+                        var row = table.NewRow();
+                        row["Code"] = item.Code;
+                        row["Brand"] = item.Brand;
+                        row["Name"] = item.Name;
+                        table.Rows.Add(row);
+                    });
+                }
+                else
+                {
+                    throw new PAS_DE_PRODUITS_EXCEPTION("The products list is empty");
+                }
             }
-            else
-            {
-                throw new PAS_DE_PRODUITS_EXCEPTION("The products list is empty");
-            }
-        }
             catch (PAS_DE_PRODUITS_EXCEPTION exception)
             {
                 MessageBox.Show(exception.Message, "Exception", MessageBoxButtons.OK);
 
             }
+
             return table;
         }
-        static void RemoveItem(Product item)
-        {
 
-        }
+
 
     }
 }

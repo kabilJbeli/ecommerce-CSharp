@@ -43,6 +43,8 @@ namespace ecommerce
             Transaction transaction = new Transaction();
             transaction.Code = code;
             transaction.Quantity = int.Parse(this.quantity.Text);
+            this.message.ForeColor = Color.OrangeRed;
+
             try
             {
                 if (transaction.Product.Quantity < transaction.Quantity)
@@ -50,8 +52,11 @@ namespace ecommerce
                     throw new INSUFFICIENT_QUANTITY("There's not a susfficiant Quantity to accept your transaction");
                 }
                 transactionDAO.updateTransaction(transaction);
+                this.message.Text = "The Selected Transaction Has Been Updated With Success";
             }catch(INSUFFICIENT_QUANTITY exception)
             {
+                this.message.Text = "An Error Has Occured While Updating The Selected Transaction";
+
                 string title = "Exception";
                 string message = exception.Message;
                 MessageBox.Show(message, title);

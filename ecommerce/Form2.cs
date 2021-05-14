@@ -26,8 +26,8 @@ namespace ecommerce
                 this.productBrand.Text = "";
                 this.productName.Text = "";
                 this.productCode.Text = "";
-            try
-            {
+            try { 
+                   
                 Product pd = new Product(code, brand, name);
                 Boolean response = productDAO.setProduct(pd);
                 this.message.Visible = true;
@@ -39,6 +39,8 @@ namespace ecommerce
                 else
                 {
                     this.message.Text = "An Error Has Occured While Adding the Product";
+                    throw new PRODUIT_EXISTE_EXCEPTION("A Product With the same ID Already Exist");
+
                 }
                 Point p = new Point();
                 p.X = 0;

@@ -76,8 +76,10 @@ namespace ecommerce
                 string email = this.clientEmail.Text;
                 int tel = int.Parse(this.clientTel.Text);
                 string adress = this.clientAdress.Text;
-                Client client = new Client(code, clientName, clientLastName, email, tel, adress);
                 ClientDAO clientDAO = new ClientDAO();
+             
+                Client client = new Client(code, clientName, clientLastName, email, tel, adress);
+               
                 Boolean response = clientDAO.setClient(client);
                 this.message.Visible = true;
                 this.errorLabel.Visible = false;
@@ -88,9 +90,11 @@ namespace ecommerce
                 else
                 {
                     this.message.Text = "An Error Has Occured While Adding The Client";
+                    throw (new ClIENT_EXISTE_EXCEPTION("There's already a client with the mentioned ID"));
 
                 }
-            }catch(ClIENT_EXISTE_EXCEPTION exception)
+            }
+            catch(ClIENT_EXISTE_EXCEPTION exception)
             {
                 string title = "Exception";
                 string message = exception.Message;

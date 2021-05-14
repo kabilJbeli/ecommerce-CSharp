@@ -161,5 +161,19 @@ namespace ecommerce
             SupplyList.Show();
             this.Hide();
         }
+
+        private void répartitionDeChiffreDaffaireParClientToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            clientRepartionList repartitionList = new clientRepartionList();
+            repartitionList.Show();
+            this.Hide();
+        }
+
+        private void répartitionDeChiffreDaffaireParProduitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            productRepartitionList repartitionList = new productRepartitionList();
+            repartitionList.Show();
+            this.Hide();
+        }
     }
 }

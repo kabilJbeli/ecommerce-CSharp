@@ -33,6 +33,7 @@ namespace ecommerce
             this.label1 = new System.Windows.Forms.Label();
             this.supplybtn = new System.Windows.Forms.Button();
             this.quantity = new System.Windows.Forms.TextBox();
+            this.infoLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -87,14 +88,24 @@ namespace ecommerce
             this.quantity.Size = new System.Drawing.Size(583, 40);
             this.quantity.TabIndex = 2;
             // 
+            // infoLabel
+            // 
+            this.infoLabel.AutoSize = true;
+            this.infoLabel.Location = new System.Drawing.Point(93, 235);
+            this.infoLabel.Name = "infoLabel";
+            this.infoLabel.Size = new System.Drawing.Size(0, 17);
+            this.infoLabel.TabIndex = 12;
+            // 
             // supply
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.ClientSize = new System.Drawing.Size(1316, 559);
+            this.Controls.Add(this.infoLabel);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "supply";
             this.Load += new System.EventHandler(this.supply_Load);
             this.Controls.SetChildIndex(this.tableLayoutPanel1, 0);
+            this.Controls.SetChildIndex(this.infoLabel, 0);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
@@ -108,5 +119,6 @@ namespace ecommerce
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button supplybtn;
         private System.Windows.Forms.TextBox quantity;
+        private System.Windows.Forms.Label infoLabel;
     }
 }

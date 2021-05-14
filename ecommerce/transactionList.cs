@@ -55,14 +55,22 @@ namespace ecommerce
             // Step 3: here we add rows.
             TransactionDAO transactiontDAO = new TransactionDAO();
             List<Transaction> transactions = transactiontDAO.getTransactionsList();
-            transactions.ForEach(item => {
-                var row = table.NewRow();
-                row["code"] = item.Code;
-                row["Client Name"] = item.Client.Name;
-                row["Product Name"] = item.Product.Name;
-                row["Transaction Date"] = item.TransactionDate;
-                table.Rows.Add(row);
-            });
+                if (transactions != null)
+                {
+                    transactions.ForEach(item =>
+                    {
+                        var row = table.NewRow();
+                        row["code"] = item.Code;
+                        row["Client Name"] = item.Client.Name;
+                        row["Product Name"] = item.Product.Name;
+                        row["Transaction Date"] = item.TransactionDate;
+                        table.Rows.Add(row);
+                    });
+                }
+                else
+                {
+                    throw new PAS_DE_TRANSACTION_EXCEPTION("The Transactions List Is currently Empty");
+                }
 
         }catch(PAS_DE_TRANSACTION_EXCEPTION exception) {
                 string title = "Exception";

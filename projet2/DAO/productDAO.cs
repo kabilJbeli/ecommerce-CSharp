@@ -32,8 +32,9 @@ namespace ecommerce.ecommerceClasses
                 prod.Brand = row.Field<string>("brand");
                 prod.Code = row.Field<string>("code");
                 prod.Name = row.Field<string>("name");
-                prod.PrixUnitaire = decimal.Parse(row.Field<string>("prixUnitaire"));
-                prod.Tva = decimal.Parse(row.Field<string>("tva"));
+                prod.Quantity =row.Field<int>("quantity");
+                prod.PrixUnitaire = row.Field<decimal>("prixUnitaire");
+                prod.Tva = row.Field<decimal>("tva");
             }
             catch (Exception e){}
             finally

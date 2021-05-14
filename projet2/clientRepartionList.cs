@@ -9,19 +9,19 @@ using System.Windows.Forms;
 
 namespace ecommerce
 {
-    public partial class updateProduct : ecommerce.Form1
+    public partial class clientRepartionList : ecommerce.Form1
     {
         DataGridView dt;
 
-        public updateProduct()
+        public clientRepartionList()
         {
             InitializeComponent();
         }
 
-
-
-        private void updateProduct_Load(object sender, EventArgs e)
+        private void clientRepartionList_Load(object sender, EventArgs e)
         {
+            this.statusLabel.Text = "Update Client List";
+            this.statusStrip1.Refresh();
             DataTable table = GetTable();
             dt = new DataGridView();
             dt.Location = new Point(30, 26);
@@ -39,34 +39,38 @@ namespace ecommerce
             Controls.Add(dt);
             DataGridViewButtonColumn bcol = new DataGridViewButtonColumn();
             bcol.HeaderText = "Action ";
-            bcol.Text = "Update";
+            bcol.Text = "Consult Client Repartition";
             bcol.Name = "btnClickMe";
             bcol.UseColumnTextForButtonValue = true;
             dt.CellContentClick += btnClickMe_CellContentClick;
             dt.Columns.Add(bcol);
             dt.Refresh();
-            this.statusLabel.Text = "Products List";
-            this.statusStrip1.Refresh();
         }
+
+
+
+     
+
 
         private void btnClickMe_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 3)
+            if (e.ColumnIndex == 5)
             {
-                ProductDAO productDAO = new ProductDAO();
+                ClientDAO clientDAO = new ClientDAO();
                 var rowIndex = e.RowIndex;
                 //specify 0, if the Id is in the first Column else in place of 0 e.ColumnIndex
                 var id = dt.Rows[e.RowIndex].Cells[0].Value;
 
-                updateProductScreen updateproduct = new updateProductScreen();
-                updateProductScreen.code = id.ToString();
-                updateproduct.Show();
+                selectedClientRepartition selectedClient = new selectedClientRepartition();
+                selectedClient.Code = id.ToString();
+                selectedClient.Show();
                 this.Hide();
                 Console.WriteLine("Button Clicked");
                 DataTable table = GetTable();
                 dt.DataSource = table;
                 dt.CellContentClick += btnClickMe_CellContentClick;
                 this.dt.Refresh();
+                Controls.Add(dt);
 
             }
         }
@@ -75,41 +79,48 @@ namespace ecommerce
             // Step 2: here we create a DataTable.
             // ... We add 4 columns, each with a Type.
             DataTable table = new DataTable();
-            table.Columns.Add("Code", typeof(string));
-            table.Columns.Add("Brand", typeof(string));
+            table.Columns.Add("code", typeof(string));
             table.Columns.Add("Name", typeof(string));
+            table.Columns.Add("LastName", typeof(string));
+            table.Columns.Add("Email", typeof(string));
+            //  table.Columns.Add("Tel", typeof(int));
+            table.Columns.Add("Adress", typeof(string));
+
             // Step 3: here we add rows.
-            ProductDAO productsDAO = new ProductDAO();
-            try { 
-            List<Product> products = productsDAO.getProductsList();
-            if (products != null)
+            ClientDAO clientDAO = new ClientDAO();
+            try
             {
-                products.ForEach(item =>
+                List<Client> clients = clientDAO.getClientsList();
+                if (clients != null)
                 {
-                    var row = table.NewRow();
-                    row["Code"] = item.Code;
-                    row["Brand"] = item.Brand;
-                    row["Name"] = item.Name;
-                    table.Rows.Add(row);
-                });
+                    clients.ForEach(item =>
+                    {
+                        var row = table.NewRow();
+                        row["code"] = item.Code;
+                        row["Name"] = item.Name;
+                        row["LastName"] = item.LastName;
+                        row["Email"] = item.Email;
+                        row["Adress"] = item.Adress;
 
+                        table.Rows.Add(row);
+                    });
+                }
+                else
+                {
+                    throw new exceptions("The Clients List Is Currently Empty");
+                }
             }
-            else
+            catch (exceptions exception)
             {
-                throw new PAS_DE_PRODUITS_EXCEPTION("The products list is empty");
-            }
-        }
-            catch (PAS_DE_PRODUITS_EXCEPTION exception)
-            {
-                MessageBox.Show(exception.Message, "Exception", MessageBoxButtons.OK);
+                string title = "Exception";
+                string message = exception.Message;
+                MessageBox.Show(message, title);
 
+                Console.WriteLine(exception.Message);
             }
             return table;
         }
-        static void RemoveItem(Product item)
-        {
 
-        }
 
     }
 }

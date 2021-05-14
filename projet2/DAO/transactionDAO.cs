@@ -35,6 +35,8 @@ namespace ecommerce.ecommerceClasses
                 transaction.Code = row.Field<string>("code");
                 transaction.Client = clientDAO.GetClient(row.Field<string>("clientID"));
                 transaction.Product = productDAO.GetProduct(row.Field<string>("productID"));
+                transaction.Quantity =row.Field<int>("quantity");
+
             }
             catch (Exception e)
             {
@@ -66,6 +68,7 @@ namespace ecommerce.ecommerceClasses
                 dt.AsEnumerable();
                 if (dt.Rows.Count != 0)
                 {
+                    list = new List<Transaction>();
                     foreach (DataRow row in dt.AsEnumerable())
                     {
                         Transaction transaction = new Transaction();
@@ -73,6 +76,8 @@ namespace ecommerce.ecommerceClasses
                         transaction.Code = row.Field<string>("code");
                         transaction.Client = clientDAO.GetClient(row.Field<string>("clientID"));
                         transaction.Product = productDAO.GetProduct(row.Field<string>("productID"));
+                        transaction.Quantity = row.Field<int>("quantity");
+
                         list.Add(transaction);
                     }
                 }
@@ -141,7 +146,6 @@ namespace ecommerce.ecommerceClasses
                 SqlCommand cmd = new SqlCommand(req, conn);
                 cmd.Parameters.AddWithValue("@code", transaction.Code);
                 cmd.Parameters.AddWithValue("@transactionDate", date);
-
                 cmd.Parameters.AddWithValue("@productID", transaction.Product.Code);
                 cmd.Parameters.AddWithValue("@clientID", transaction.Client.Code);
                 cmd.Parameters.AddWithValue("@quantity", transaction.Quantity);
@@ -188,14 +192,11 @@ namespace ecommerce.ecommerceClasses
                 Product product = productDAO.GetProduct(transaction.Product.Code);
                 if (product.Quantity >= transaction.Quantity)
                 {
-
                     string req = "update transactions set transactionDate=@transactionDate,quantity=@quantity where code=@code";
                     SqlCommand cmd = new SqlCommand(req, conn);
                     cmd.Parameters.AddWithValue("@code", transaction.Code);
                     cmd.Parameters.AddWithValue("@transactionDate", transaction.TransactionDate);
                     cmd.Parameters.AddWithValue("@quantity", transaction.Quantity);
-
-
                     int rows = cmd.ExecuteNonQuery();
                     if (rows > 0)
                     {
@@ -222,14 +223,108 @@ namespace ecommerce.ecommerceClasses
                 conn.Close();
             }
         }
-        public double repartition()
-        { ClientDAO clientDAO = new ClientDAO();
-            List<Transaction> TL = getTransactionsList();
-            List<Client> CL = clientDAO.getClientsList();
-            double res = new double();
 
 
-            return res;
+        public List<Transaction> getTransactionsListByClientID(string clientid)
+        {
+
+            SqlConnection conn = connection.GetConnection();
+            conn.Open();
+
+            DataTable dt = new DataTable();
+            List<Transaction> list = null;
+            ClientDAO clientDAO = new ClientDAO();
+            ProductDAO productDAO = new ProductDAO();
+            try
+            {
+                string req = "select * from transactions where clientID=@clientid";
+                SqlCommand cmd = new SqlCommand(req, conn);
+                cmd.Parameters.AddWithValue("@clientid", clientid);
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dt);
+                dt.AsEnumerable();
+                if (dt.Rows.Count != 0)
+                {
+                    list = new List<Transaction>();
+
+                    foreach (DataRow row in dt.AsEnumerable())
+                    {
+                        Transaction transaction = new Transaction();
+                        transaction.TransactionDate = row.Field<DateTime>("transactionDate");
+                        transaction.Code = row.Field<string>("code");
+                        transaction.Client = clientDAO.GetClient(row.Field<string>("clientID"));
+                        transaction.Product = productDAO.GetProduct(row.Field<string>("productID"));
+                        transaction.Quantity = row.Field<int>("quantity");
+                        list.Add(transaction);
+                    }
+                }
+                else
+                {
+                    throw (new PAS_DE_TRANSACTION_EXCEPTION("The Transactions List Is Currently Empty"));
+                }
+            }
+            catch (Exception e)
+            {
+
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return list;
         }
+
+
+        public List<Transaction> getTransactionsListByProductID(string productid)
+        {
+
+            SqlConnection conn = connection.GetConnection();
+            conn.Open();
+
+            DataTable dt = new DataTable();
+            List<Transaction> list = null;
+            ClientDAO clientDAO = new ClientDAO();
+            ProductDAO productDAO = new ProductDAO();
+            try
+            {
+                string req = "select * from transactions where productID=@productid";
+                SqlCommand cmd = new SqlCommand(req, conn);
+                cmd.Parameters.AddWithValue("@productid", productid);
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dt);
+                dt.AsEnumerable();
+                if (dt.Rows.Count != 0)
+                {
+                    list = new List<Transaction>();
+
+                    foreach (DataRow row in dt.AsEnumerable())
+                    {
+                        Transaction transaction = new Transaction();
+                        transaction.TransactionDate = row.Field<DateTime>("transactionDate");
+                        transaction.Code = row.Field<string>("code");
+                        transaction.Client = clientDAO.GetClient(row.Field<string>("clientID"));
+                        transaction.Product = productDAO.GetProduct(row.Field<string>("productID"));
+                        transaction.Quantity = row.Field<int>("quantity");
+                        list.Add(transaction);
+                    }
+                }
+                else
+                {
+                    throw (new PAS_DE_TRANSACTION_EXCEPTION("The Transactions List Is Currently Empty"));
+                }
+            }
+            catch (Exception e)
+            {
+
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return list;
+        }
+
     }
 }

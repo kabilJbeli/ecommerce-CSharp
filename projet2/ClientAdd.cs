@@ -88,9 +88,11 @@ namespace ecommerce
                 else
                 {
                     this.message.Text = "An Error Has Occured While Adding The Client";
+                    throw (new ClIENT_EXISTE_EXCEPTION("There's already a client with the mentioned ID"));
 
                 }
-            }catch(ClIENT_EXISTE_EXCEPTION exception)
+            }
+            catch(ClIENT_EXISTE_EXCEPTION exception)
             {
                 string title = "Exception";
                 string message = exception.Message;

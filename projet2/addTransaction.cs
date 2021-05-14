@@ -136,15 +136,21 @@ namespace ecommerce
             transaction.Product = product;
             transaction.Code = this.transactionCode.Text;
             transaction.Quantity = int.Parse(this.quantity.Text);
+            this.message.ForeColor = Color.OrangeRed;
+
             try
-            {if(product.Quantity < transaction.Quantity)
+            {
+                if(product.Quantity > transaction.Quantity)
                 {
                     throw new INSUFFICIENT_QUANTITY("There's not a susfficiant Quantity to accept your transaction");
                 }
                 transactionDAO.setTransaction(transaction);
+                this.message.Text = "Transaction Has been Added With Success";
             }catch(INSUFFICIENT_QUANTITY exception)
             {
-                 string title = "Exception";
+                this.message.Text = "An Error Has Occured While Adding The Transaction";
+
+                string title = "Exception";
                 string message = exception.Message;
                 MessageBox.Show(this, message, title, MessageBoxButtons.OK);
             }

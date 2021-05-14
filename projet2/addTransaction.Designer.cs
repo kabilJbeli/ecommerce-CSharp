@@ -30,6 +30,8 @@ namespace ecommerce
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.quantity = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.addproductbtn = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -37,8 +39,7 @@ namespace ecommerce
             this.label2 = new System.Windows.Forms.Label();
             this.product = new System.Windows.Forms.ComboBox();
             this.client = new System.Windows.Forms.ComboBox();
-            this.quantity = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.message = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,6 +69,26 @@ namespace ecommerce
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1281, 179);
             this.tableLayoutPanel1.TabIndex = 10;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(672, 62);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(61, 17);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Quantity";
+            // 
+            // quantity
+            // 
+            this.quantity.Location = new System.Drawing.Point(739, 51);
+            this.quantity.MinimumSize = new System.Drawing.Size(4, 40);
+            this.quantity.Multiline = true;
+            this.quantity.Name = "quantity";
+            this.quantity.Size = new System.Drawing.Size(537, 40);
+            this.quantity.TabIndex = 11;
+            this.quantity.TextChanged += new System.EventHandler(this.quantity_TextChanged);
             // 
             // label1
             // 
@@ -144,34 +165,24 @@ namespace ecommerce
             this.client.SelectedIndexChanged += new System.EventHandler(this.clients_SelectedIndexChanged);
             this.client.TextChanged += new System.EventHandler(this.client_TextChanged);
             // 
-            // quantity
+            // message
             // 
-            this.quantity.Location = new System.Drawing.Point(739, 51);
-            this.quantity.MinimumSize = new System.Drawing.Size(4, 40);
-            this.quantity.Multiline = true;
-            this.quantity.Name = "quantity";
-            this.quantity.Size = new System.Drawing.Size(537, 40);
-            this.quantity.TabIndex = 11;
-            this.quantity.TextChanged += new System.EventHandler(this.quantity_TextChanged);
-            // 
-            // label4
-            // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(672, 62);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(61, 17);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "Quantity";
+            this.message.AutoSize = true;
+            this.message.Location = new System.Drawing.Point(152, 284);
+            this.message.Name = "message";
+            this.message.Size = new System.Drawing.Size(0, 17);
+            this.message.TabIndex = 11;
             // 
             // addTransaction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.ClientSize = new System.Drawing.Size(1316, 559);
+            this.Controls.Add(this.message);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "addTransaction";
             this.Load += new System.EventHandler(this.addTransaction_Load);
             this.Controls.SetChildIndex(this.tableLayoutPanel1, 0);
+            this.Controls.SetChildIndex(this.message, 0);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
@@ -191,5 +202,6 @@ namespace ecommerce
         private System.Windows.Forms.ComboBox client;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox quantity;
+        private System.Windows.Forms.Label message;
     }
 }

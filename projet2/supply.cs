@@ -28,7 +28,18 @@ namespace ecommerce
             ProductDAO productDAO = new ProductDAO();
             product.Quantity = int.Parse(this.quantity.Text);
             product.Code = code;
-            productDAO.setQuantityProduct(product);
+           Boolean response = productDAO.setQuantityProduct(product);
+            this.infoLabel.ForeColor = Color.OrangeRed;
+
+            if (response)
+            {
+                this.infoLabel.Text = "Quantity Has been Adjusted with success in the selected product";
+            }
+            else
+            {
+                this.infoLabel.Text = "An Error Has Occured While Adjusting the quantity";
+
+            }
         }
 
         private void supply_Load(object sender, EventArgs e)

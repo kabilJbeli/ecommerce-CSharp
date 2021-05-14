@@ -216,12 +216,14 @@ namespace ecommerce
             this.répartitionDeChiffreDaffaireParClientToolStripMenuItem.Name = "répartitionDeChiffreDaffaireParClientToolStripMenuItem";
             this.répartitionDeChiffreDaffaireParClientToolStripMenuItem.Size = new System.Drawing.Size(371, 26);
             this.répartitionDeChiffreDaffaireParClientToolStripMenuItem.Text = "Répartition de chiffre d’affaire par client";
+            this.répartitionDeChiffreDaffaireParClientToolStripMenuItem.Click += new System.EventHandler(this.répartitionDeChiffreDaffaireParClientToolStripMenuItem_Click);
             // 
             // répartitionDeChiffreDaffaireParProduitToolStripMenuItem
             // 
             this.répartitionDeChiffreDaffaireParProduitToolStripMenuItem.Name = "répartitionDeChiffreDaffaireParProduitToolStripMenuItem";
             this.répartitionDeChiffreDaffaireParProduitToolStripMenuItem.Size = new System.Drawing.Size(371, 26);
             this.répartitionDeChiffreDaffaireParProduitToolStripMenuItem.Text = "Répartition de chiffre d’affaire par produit";
+            this.répartitionDeChiffreDaffaireParProduitToolStripMenuItem.Click += new System.EventHandler(this.répartitionDeChiffreDaffaireParProduitToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 

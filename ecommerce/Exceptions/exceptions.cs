@@ -37,6 +37,8 @@ namespace ecommerce.ecommerceClasses
   
     class exceptions : Exception
     {
-
+        public exceptions(string message) : base(message)
+        {
+        }
     }
 }

@@ -28,10 +28,13 @@ namespace ecommerce.ecommerceClasses
                 DataRow row = (from product in dt.AsEnumerable()
                                where product.Field<string>("code") == code
                                select product).First();
-                prod = new Product();
-                prod.Brand = row.Field<string>("brand");
-                prod.Code = row.Field<string>("code");
-                prod.Name = row.Field<string>("name");
+                if (row != null)
+                {
+                    prod = new Product();
+                    prod.Brand = row.Field<string>("brand");
+                    prod.Code = row.Field<string>("code");
+                    prod.Name = row.Field<string>("name");
+                }
             }
             catch (Exception e){}
             finally
